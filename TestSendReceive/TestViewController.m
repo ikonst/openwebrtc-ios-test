@@ -67,13 +67,26 @@ GThread *owr_thread;
     // Setup the AVAudioSession -- otherwise, AudioUnitInitialize would fail
     AVAudioSession *mySession = [AVAudioSession sharedInstance];
     NSError *audioSessionError = nil;
-    [mySession setPreferredSampleRate: audio_sample_rate  error: &audioSessionError];
-    [mySession setCategory: AVAudioSessionCategoryPlayAndRecord error: &audioSessionError];
-    [mySession setActive:YES error: &audioSessionError];
-    audio_sample_rate = [mySession sampleRate];
-    assert(audio_sample_rate == 48000); // owr doesn't seem to support anything else
+
+#if 0
+    [mySession setPreferredSampleRate:audio_sample_rate  error:&audioSessionError];
+    unsigned int hardcoded_frames = 4196; // from osxaudio gst source code
+    NSTimeInterval bufferDuration = (double)hardcoded_frames / (double)audio_sample_rate;
+    [mySession setPreferredIOBufferDuration:bufferDuration error:&audioSessionError];
+    [mySession setPreferredInputNumberOfChannels:audio_channels error:&audioSessionError];
+    [mySession setPreferredOutputNumberOfChannels:audio_channels error:&audioSessionError];
+#endif
+    [mySession setCategory: AVAudioSessionCategoryPlayAndRecord error:&audioSessionError];
+
+    [mySession setActive:YES error:&audioSessionError];
     
-    // setenv("GST_DEBUG_DUMP_DOT_DIR", [NSTemporaryDirectory() cStringUsingEncoding:NSUTF8StringEncoding], 1);
+    // Confirm our settings now, once the AVAudioSession is active
+#if 0
+    double preferred_audio_sample_rate = [mySession sampleRate];
+    assert(audio_sample_rate == preferred_audio_sample_rate);
+    // We have to accept what the system gives us still
+    audio_sample_rate = preferred_audio_sample_rate;
+#endif
     setenv("GST_DEBUG", "0", 1);
     
     owr_context = g_main_context_default();
