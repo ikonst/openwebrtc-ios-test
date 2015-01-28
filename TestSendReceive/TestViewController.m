@@ -102,7 +102,9 @@ GThread *owr_thread;
     // We have to accept what the system gives us still
     audio_sample_rate = preferred_audio_sample_rate;
 #endif
+    setenv("GST_DEBUG_DUMP_DOT_DIR", [NSTemporaryDirectory() cStringUsingEncoding:NSUTF8StringEncoding], 1);
     setenv("GST_DEBUG", "0", 1);
+    setenv("GST_DEBUG_NO_COLOR", "1", 1); // colors don't display on XCode console
     
     owr_context = g_main_context_default();
     owr_main_loop  = g_main_loop_new(owr_context, FALSE);
@@ -254,16 +256,13 @@ static void got_remote_source(OwrMediaSession *session, OwrMediaSource *source, 
     
     g_free(name);
 
-    // TODO: removed in latest OWR release?
-#if 0
     if (media_type == OWR_MEDIA_TYPE_VIDEO) {
-        owr_media_source_dump_dot_file(source, "test_receive-got_remote_source-video-source", TRUE);
-        owr_media_renderer_dump_dot_file(owr_renderer, "test_receive-got_remote_source-video-renderer", TRUE);
+        write_dot_file("test_receive-got_remote_source-video-source", owr_media_source_get_dot_data(source), TRUE);
+        write_dot_file("test_receive-got_remote_source-video-renderer", owr_media_renderer_get_dot_data(owr_renderer), TRUE);
     } else {
-        owr_media_source_dump_dot_file(source, "test_receive-got_remote_source-audio-source", TRUE);
-        owr_media_renderer_dump_dot_file(owr_renderer, "test_receive-got_remote_source-audio-renderer", TRUE);
+        write_dot_file("test_receive-got_remote_source-audio-source", owr_media_source_get_dot_data(source), TRUE);
+        write_dot_file("test_receive-got_remote_source-audio-renderer", owr_media_renderer_get_dot_data(owr_renderer), TRUE);
     }
-#endif
 }
 
 static void got_candidate(OwrMediaSession *session_a, OwrCandidate *candidate, OwrMediaSession *session_b)
@@ -276,8 +275,8 @@ static void got_sources(GList *sources, gpointer user_data)
     static gboolean have_video = FALSE, have_audio = FALSE;
 #ifdef RENDER_SELF_VIEW
     OwrMediaRenderer *video_renderer = NULL;
-    OwrMediaSource *audio_source = NULL, *video_source = NULL;
 #endif
+    OwrMediaSource *audio_source = NULL, *video_source = NULL;
     
     g_assert(sources);
     
@@ -323,9 +322,7 @@ static void got_sources(GList *sources, gpointer user_data)
             
             owr_transport_agent_add_session(send_transport_agent, OWR_SESSION(send_session_audio));
             
-#ifdef RENDER_SELF_VIEW
             audio_source = source;
-#endif
         }
         
         g_free(source_name);
@@ -334,13 +331,36 @@ static void got_sources(GList *sources, gpointer user_data)
             break;
     }
 
-#ifdef RENDER_SELF_VIEW
     if (audio_source)
-        owr_media_source_dump_dot_file(audio_source, "test_send-got_source-audio-source", TRUE);
+        write_dot_file("test_send-got_source-audio-source", owr_media_source_get_dot_data(audio_source), TRUE);
     if (video_source)
-        owr_media_source_dump_dot_file(video_source, "test_send-got_source-video-source", TRUE);
+        write_dot_file("test_send-got_source-video-source", owr_media_source_get_dot_data(video_source), TRUE);
+#ifdef RENDER_SELF_VIEW
     if (video_renderer)
-        owr_media_renderer_dump_dot_file(video_renderer, "test_send-got_source-video-renderer", TRUE);
+        write_dot_file("test_send-got_source-video-renderer", owr_media_renderer_get_dot_data(video_renderer), TRUE);
 #endif
+}
+
+void write_dot_file(const gchar *base_file_name, gchar *dot_data, gboolean with_timestamp)
+{
+    g_return_if_fail(base_file_name);
+    g_return_if_fail(dot_data);
+    
+    gchar *timestamp = NULL;
+    if (with_timestamp) {
+        GTimeVal time;
+        g_get_current_time(&time);
+        timestamp = g_time_val_to_iso8601(&time);
+    }
+    
+    const char *path = [NSTemporaryDirectory() cStringUsingEncoding:NSUTF8StringEncoding];
+    gchar *filename = g_strdup_printf("%s/%s%s%s.dot", path[0] ? path : ".",
+                               timestamp ? timestamp : "", timestamp ? "-" : "", base_file_name);
+    gboolean success = g_file_set_contents(filename, dot_data, -1, NULL);
+    g_warn_if_fail(success);
+    
+    g_free(dot_data);
+    g_free(filename);
+    g_free(timestamp);
 }
 @end
