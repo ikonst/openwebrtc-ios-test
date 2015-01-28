@@ -37,6 +37,12 @@ bool use_video = false;
 int video_width, video_height;
 float transmit_frame_rate, render_frame_rate;
 guint audio_sample_rate;
+guint audio_channels;
+OwrCodecType audio_codec_type;
+
+#define OPUS
+const int PCMA_SAMPLE_RATE = 8000;
+const int OPUS_SAMPLE_RATE = 48000;
 
 // Instead of using owr_init, we initialize our own owr_loop_thread
 GMainContext *owr_context;
@@ -47,7 +53,16 @@ GThread *owr_thread;
 {
     [super viewDidLoad];
     
-    audio_sample_rate = 48000;
+#ifdef OPUS
+    audio_sample_rate = OPUS_SAMPLE_RATE;
+    audio_codec_type = OWR_CODEC_TYPE_OPUS;
+    audio_channels = 1;
+#else
+    audio_sample_rate = PCMA_SAMPLE_RATE;
+    audio_codec_type = OWR_CODEC_TYPE_PCMA;
+    audio_channels = 1;
+#endif
+
     transmit_frame_rate = 30.0;
     render_frame_rate = 60.0;
 #if 0
@@ -181,7 +196,7 @@ gboolean my_owr_setup(gpointer user_data) {
     {
         g_signal_connect(recv_session_audio, "on-incoming-source", G_CALLBACK(got_remote_source), NULL);
         
-        OwrPayload *receive_payload = owr_audio_payload_new(OWR_CODEC_TYPE_OPUS, 100, audio_sample_rate, 1);
+        OwrPayload *receive_payload = owr_audio_payload_new(audio_codec_type, 100, audio_sample_rate, audio_channels);
         owr_media_session_add_receive_payload(recv_session_audio, receive_payload);
         
         owr_transport_agent_add_session(recv_transport_agent, OWR_SESSION(recv_session_audio));
@@ -296,12 +311,12 @@ static void got_sources(GList *sources, gpointer user_data)
             g_object_set(renderer, "width", video_width, "height", video_height, "max-framerate", transmit_frame_rate, NULL);
             owr_media_renderer_set_source(OWR_MEDIA_RENDERER(renderer), source);
             video_renderer = OWR_MEDIA_RENDERER(renderer);
-            video_source = source;
 #endif
+            video_source = source;
         } else if (!have_audio && media_type == OWR_MEDIA_TYPE_AUDIO && source_type == OWR_SOURCE_TYPE_CAPTURE) {
             have_audio = TRUE;
             
-            OwrPayload *payload = owr_audio_payload_new(OWR_CODEC_TYPE_OPUS, 100, audio_sample_rate, 1);
+            OwrPayload *payload = owr_audio_payload_new(audio_codec_type, 100, audio_sample_rate, audio_channels);
             owr_media_session_set_send_payload(send_session_audio, payload);
             
             owr_media_session_set_send_source(send_session_audio, source);
