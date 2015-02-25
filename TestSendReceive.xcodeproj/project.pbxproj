@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F75DD3E1A7BFA0700735B84 /* libopenwebrtc_bridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DD3C1A7BFA0700735B84 /* libopenwebrtc_bridge.a */; };
-		3F75DD3F1A7BFA0700735B84 /* libopenwebrtc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DD3D1A7BFA0700735B84 /* libopenwebrtc.a */; };
+		3F2342571A9D4BCE00171D2B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2342561A9D4BCE00171D2B /* AppDelegate.m */; };
+		3F23428B1A9D539300171D2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F23428A1A9D539300171D2B /* main.m */; };
 		3F75DE781A7C028400735B84 /* libgstalaw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE581A7C028400735B84 /* libgstalaw.a */; };
 		3F75DE791A7C028400735B84 /* libgstapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE591A7C028400735B84 /* libgstapp.a */; };
 		3F75DE7A1A7C028400735B84 /* libgstapplemedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE5A1A7C028400735B84 /* libgstapplemedia.a */; };
@@ -41,9 +41,6 @@
 		3F75DE951A7C028400735B84 /* libgstvideotestsrc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE751A7C028400735B84 /* libgstvideotestsrc.a */; };
 		3F75DE961A7C028400735B84 /* libgstvolume.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE761A7C028400735B84 /* libgstvolume.a */; };
 		3F75DE971A7C028400735B84 /* libgstvpx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE771A7C028400735B84 /* libgstvpx.a */; };
-		3F75DE991A7C032400735B84 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE981A7C032400735B84 /* libcrypto.a */; };
-		3F75DE9B1A7C033E00735B84 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE9A1A7C033E00735B84 /* libssl.a */; };
-		3F75DE9D1A7C034D00735B84 /* libvpx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE9C1A7C034D00735B84 /* libvpx.a */; };
 		3F75DED31A7C38E900735B84 /* libbz2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEA71A7C38E900735B84 /* libbz2.a */; };
 		3F75DED41A7C38E900735B84 /* libcharset.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEA81A7C38E900735B84 /* libcharset.a */; };
 		3F75DED51A7C38E900735B84 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEA91A7C38E900735B84 /* libcrypto.a */; };
@@ -89,8 +86,6 @@
 		3F75DEFD1A7C38E900735B84 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DED11A7C38E900735B84 /* libssl.a */; };
 		3F75DEFE1A7C38E900735B84 /* libvpx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DED21A7C38E900735B84 /* libvpx.a */; };
 		3F75DF001A7C406100735B84 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEFF1A7C406100735B84 /* libresolv.dylib */; };
-		3FC7BDC01A796BD100EF5ED8 /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7BDBF1A796BD100EF5ED8 /* debug.c */; };
-		F8E98D7119F264B20009F66F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E98D7019F264B20009F66F /* AppDelegate.swift */; };
 		F8E98D7619F264B20009F66F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E98D7419F264B20009F66F /* Main.storyboard */; };
 		F8E98D7819F264B20009F66F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8E98D7719F264B20009F66F /* Images.xcassets */; };
 		F8E98D7B19F264B20009F66F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8E98D7919F264B20009F66F /* LaunchScreen.xib */; };
@@ -111,8 +106,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F75DD3C1A7BFA0700735B84 /* libopenwebrtc_bridge.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopenwebrtc_bridge.a; path = ../../cerbero/dist/ios_arm64/lib/libopenwebrtc_bridge.a; sourceTree = "<group>"; };
-		3F75DD3D1A7BFA0700735B84 /* libopenwebrtc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopenwebrtc.a; path = ../../cerbero/dist/ios_arm64/lib/libopenwebrtc.a; sourceTree = "<group>"; };
+		3F2342551A9D4BCE00171D2B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3F2342561A9D4BCE00171D2B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3F23428A1A9D539300171D2B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3F75DE581A7C028400735B84 /* libgstalaw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstalaw.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstalaw.a"; sourceTree = "<group>"; };
 		3F75DE591A7C028400735B84 /* libgstapp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstapp.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstapp.a"; sourceTree = "<group>"; };
 		3F75DE5A1A7C028400735B84 /* libgstapplemedia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstapplemedia.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstapplemedia.a"; sourceTree = "<group>"; };
@@ -145,56 +141,51 @@
 		3F75DE751A7C028400735B84 /* libgstvideotestsrc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstvideotestsrc.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstvideotestsrc.a"; sourceTree = "<group>"; };
 		3F75DE761A7C028400735B84 /* libgstvolume.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstvolume.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstvolume.a"; sourceTree = "<group>"; };
 		3F75DE771A7C028400735B84 /* libgstvpx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstvpx.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstvpx.a"; sourceTree = "<group>"; };
-		3F75DE981A7C032400735B84 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../../cerbero/dist/ios_arm64/lib/libcrypto.a; sourceTree = "<group>"; };
-		3F75DE9A1A7C033E00735B84 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../../cerbero/dist/ios_arm64/lib/libssl.a; sourceTree = "<group>"; };
-		3F75DE9C1A7C034D00735B84 /* libvpx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvpx.a; path = ../../cerbero/dist/ios_arm64/lib/libvpx.a; sourceTree = "<group>"; };
-		3F75DEA71A7C38E900735B84 /* libbz2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbz2.a; path = ../../cerbero/dist/ios_arm64/lib/libbz2.a; sourceTree = SOURCE_ROOT; };
-		3F75DEA81A7C38E900735B84 /* libcharset.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcharset.a; path = ../../cerbero/dist/ios_arm64/lib/libcharset.a; sourceTree = SOURCE_ROOT; };
-		3F75DEA91A7C38E900735B84 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../../cerbero/dist/ios_arm64/lib/libcrypto.a; sourceTree = SOURCE_ROOT; };
-		3F75DEAA1A7C38E900735B84 /* libffi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libffi.a; path = ../../cerbero/dist/ios_arm64/lib/libffi.a; sourceTree = SOURCE_ROOT; };
-		3F75DEAB1A7C38E900735B84 /* libgio-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgio-2.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgio-2.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEAC1A7C38E900735B84 /* libgirepository-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgirepository-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgirepository-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEAD1A7C38E900735B84 /* libgirepository-internals.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgirepository-internals.a"; path = "../../cerbero/dist/ios_arm64/lib/libgirepository-internals.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEAE1A7C38E900735B84 /* libglib-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libglib-2.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libglib-2.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEAF1A7C38E900735B84 /* libgmodule-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgmodule-2.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgmodule-2.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEB01A7C38E900735B84 /* libgmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmp.a; path = ../../cerbero/dist/ios_arm64/lib/libgmp.a; sourceTree = SOURCE_ROOT; };
-		3F75DEB11A7C38E900735B84 /* libgobject-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgobject-2.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgobject-2.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEB21A7C38E900735B84 /* libgstallocators-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstallocators-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstallocators-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEB31A7C38E900735B84 /* libgstapp-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstapp-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstapp-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEB41A7C38E900735B84 /* libgstaudio-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstaudio-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstaudio-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEB51A7C38E900735B84 /* libgstbadbase-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstbadbase-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstbadbase-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEB61A7C38E900735B84 /* libgstbadvideo-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstbadvideo-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstbadvideo-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEB71A7C38E900735B84 /* libgstbase-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstbase-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstbase-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEB81A7C38E900735B84 /* libgstcodecparsers-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstcodecparsers-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstcodecparsers-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEB91A7C38E900735B84 /* libgstcontroller-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstcontroller-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstcontroller-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEBA1A7C38E900735B84 /* libgstfft-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstfft-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstfft-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEBB1A7C38E900735B84 /* libgstgl-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstgl-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstgl-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEBC1A7C38E900735B84 /* libgstnet-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstnet-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstnet-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEBD1A7C38E900735B84 /* libgstpbutils-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstpbutils-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstpbutils-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEBE1A7C38E900735B84 /* libgstreamer-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstreamer-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstreamer-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEBF1A7C38E900735B84 /* libgstriff-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstriff-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstriff-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEC01A7C38E900735B84 /* libgstrtp-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstrtp-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstrtp-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEC11A7C38E900735B84 /* libgstrtsp-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstrtsp-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstrtsp-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEC21A7C38E900735B84 /* libgstsdp-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstsdp-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstsdp-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEC31A7C38E900735B84 /* libgsttag-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgsttag-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgsttag-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEC41A7C38E900735B84 /* libgstvideo-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstvideo-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgstvideo-1.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEC51A7C38E900735B84 /* libgthread-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgthread-2.0.a"; path = "../../cerbero/dist/ios_arm64/lib/libgthread-2.0.a"; sourceTree = SOURCE_ROOT; };
-		3F75DEC61A7C38E900735B84 /* libiconv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiconv.a; path = ../../cerbero/dist/ios_arm64/lib/libiconv.a; sourceTree = SOURCE_ROOT; };
-		3F75DEC71A7C38E900735B84 /* libintl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libintl.a; path = ../../cerbero/dist/ios_arm64/lib/libintl.a; sourceTree = SOURCE_ROOT; };
-		3F75DEC81A7C38E900735B84 /* libnice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnice.a; path = ../../cerbero/dist/ios_arm64/lib/libnice.a; sourceTree = SOURCE_ROOT; };
-		3F75DEC91A7C38E900735B84 /* libopenh264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopenh264.a; path = ../../cerbero/dist/ios_arm64/lib/libopenh264.a; sourceTree = SOURCE_ROOT; };
-		3F75DECA1A7C38E900735B84 /* libopenwebrtc_bridge.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopenwebrtc_bridge.a; path = ../../cerbero/dist/ios_arm64/lib/libopenwebrtc_bridge.a; sourceTree = SOURCE_ROOT; };
-		3F75DECB1A7C38E900735B84 /* libopenwebrtc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopenwebrtc.a; path = ../../cerbero/dist/ios_arm64/lib/libopenwebrtc.a; sourceTree = SOURCE_ROOT; };
-		3F75DECC1A7C38E900735B84 /* libopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopus.a; path = ../../cerbero/dist/ios_arm64/lib/libopus.a; sourceTree = SOURCE_ROOT; };
-		3F75DECD1A7C38E900735B84 /* liborc-0.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liborc-0.4.a"; path = "../../cerbero/dist/ios_arm64/lib/liborc-0.4.a"; sourceTree = SOURCE_ROOT; };
-		3F75DECE1A7C38E900735B84 /* liborc-test-0.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liborc-test-0.4.a"; path = "../../cerbero/dist/ios_arm64/lib/liborc-test-0.4.a"; sourceTree = SOURCE_ROOT; };
-		3F75DECF1A7C38E900735B84 /* libseed-gtk3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libseed-gtk3.a"; path = "../../cerbero/dist/ios_arm64/lib/libseed-gtk3.a"; sourceTree = SOURCE_ROOT; };
-		3F75DED01A7C38E900735B84 /* libsrtp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsrtp.a; path = ../../cerbero/dist/ios_arm64/lib/libsrtp.a; sourceTree = SOURCE_ROOT; };
-		3F75DED11A7C38E900735B84 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../../cerbero/dist/ios_arm64/lib/libssl.a; sourceTree = SOURCE_ROOT; };
-		3F75DED21A7C38E900735B84 /* libvpx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvpx.a; path = ../../cerbero/dist/ios_arm64/lib/libvpx.a; sourceTree = SOURCE_ROOT; };
+		3F75DEA71A7C38E900735B84 /* libbz2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbz2.a; path = ../../cerbero/dist/ios_arm64/lib/static/libbz2.a; sourceTree = SOURCE_ROOT; };
+		3F75DEA81A7C38E900735B84 /* libcharset.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcharset.a; path = ../../cerbero/dist/ios_arm64/lib/static/libcharset.a; sourceTree = SOURCE_ROOT; };
+		3F75DEA91A7C38E900735B84 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../../cerbero/dist/ios_arm64/lib/static/libcrypto.a; sourceTree = SOURCE_ROOT; };
+		3F75DEAA1A7C38E900735B84 /* libffi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libffi.a; path = ../../cerbero/dist/ios_arm64/lib/static/libffi.a; sourceTree = SOURCE_ROOT; };
+		3F75DEAB1A7C38E900735B84 /* libgio-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgio-2.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgio-2.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEAC1A7C38E900735B84 /* libgirepository-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgirepository-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgirepository-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEAD1A7C38E900735B84 /* libgirepository-internals.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgirepository-internals.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgirepository-internals.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEAE1A7C38E900735B84 /* libglib-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libglib-2.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libglib-2.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEAF1A7C38E900735B84 /* libgmodule-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgmodule-2.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgmodule-2.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB01A7C38E900735B84 /* libgmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmp.a; path = ../../cerbero/dist/ios_arm64/lib/static/libgmp.a; sourceTree = SOURCE_ROOT; };
+		3F75DEB11A7C38E900735B84 /* libgobject-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgobject-2.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgobject-2.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB21A7C38E900735B84 /* libgstallocators-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstallocators-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstallocators-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB31A7C38E900735B84 /* libgstapp-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstapp-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstapp-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB41A7C38E900735B84 /* libgstaudio-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstaudio-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstaudio-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB51A7C38E900735B84 /* libgstbadbase-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstbadbase-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstbadbase-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB61A7C38E900735B84 /* libgstbadvideo-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstbadvideo-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstbadvideo-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB71A7C38E900735B84 /* libgstbase-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstbase-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstbase-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB81A7C38E900735B84 /* libgstcodecparsers-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstcodecparsers-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstcodecparsers-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB91A7C38E900735B84 /* libgstcontroller-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstcontroller-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstcontroller-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEBA1A7C38E900735B84 /* libgstfft-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstfft-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstfft-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEBB1A7C38E900735B84 /* libgstgl-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstgl-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstgl-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEBC1A7C38E900735B84 /* libgstnet-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstnet-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstnet-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEBD1A7C38E900735B84 /* libgstpbutils-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstpbutils-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstpbutils-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEBE1A7C38E900735B84 /* libgstreamer-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstreamer-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstreamer-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEBF1A7C38E900735B84 /* libgstriff-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstriff-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstriff-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEC01A7C38E900735B84 /* libgstrtp-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstrtp-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstrtp-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEC11A7C38E900735B84 /* libgstrtsp-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstrtsp-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstrtsp-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEC21A7C38E900735B84 /* libgstsdp-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstsdp-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstsdp-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEC31A7C38E900735B84 /* libgsttag-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgsttag-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgsttag-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEC41A7C38E900735B84 /* libgstvideo-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstvideo-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstvideo-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEC51A7C38E900735B84 /* libgthread-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgthread-2.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgthread-2.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEC61A7C38E900735B84 /* libiconv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiconv.a; path = ../../cerbero/dist/ios_arm64/lib/static/libiconv.a; sourceTree = SOURCE_ROOT; };
+		3F75DEC71A7C38E900735B84 /* libintl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libintl.a; path = ../../cerbero/dist/ios_arm64/lib/static/libintl.a; sourceTree = SOURCE_ROOT; };
+		3F75DEC81A7C38E900735B84 /* libnice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnice.a; path = ../../cerbero/dist/ios_arm64/lib/static/libnice.a; sourceTree = SOURCE_ROOT; };
+		3F75DEC91A7C38E900735B84 /* libopenh264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopenh264.a; path = ../../cerbero/dist/ios_arm64/lib/static/libopenh264.a; sourceTree = SOURCE_ROOT; };
+		3F75DECA1A7C38E900735B84 /* libopenwebrtc_bridge.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopenwebrtc_bridge.a; path = ../../cerbero/dist/ios_arm64/lib/static/libopenwebrtc_bridge.a; sourceTree = SOURCE_ROOT; };
+		3F75DECB1A7C38E900735B84 /* libopenwebrtc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopenwebrtc.a; path = ../../cerbero/dist/ios_arm64/lib/static/libopenwebrtc.a; sourceTree = SOURCE_ROOT; };
+		3F75DECC1A7C38E900735B84 /* libopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopus.a; path = ../../cerbero/dist/ios_arm64/lib/static/libopus.a; sourceTree = SOURCE_ROOT; };
+		3F75DECD1A7C38E900735B84 /* liborc-0.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liborc-0.4.a"; path = "../../cerbero/dist/ios_arm64/lib/static/liborc-0.4.a"; sourceTree = SOURCE_ROOT; };
+		3F75DECE1A7C38E900735B84 /* liborc-test-0.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liborc-test-0.4.a"; path = "../../cerbero/dist/ios_arm64/lib/static/liborc-test-0.4.a"; sourceTree = SOURCE_ROOT; };
+		3F75DECF1A7C38E900735B84 /* libseed-gtk3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libseed-gtk3.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libseed-gtk3.a"; sourceTree = SOURCE_ROOT; };
+		3F75DED01A7C38E900735B84 /* libsrtp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsrtp.a; path = ../../cerbero/dist/ios_arm64/lib/static/libsrtp.a; sourceTree = SOURCE_ROOT; };
+		3F75DED11A7C38E900735B84 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../../cerbero/dist/ios_arm64/lib/static/libssl.a; sourceTree = SOURCE_ROOT; };
+		3F75DED21A7C38E900735B84 /* libvpx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvpx.a; path = ../../cerbero/dist/ios_arm64/lib/static/libvpx.a; sourceTree = SOURCE_ROOT; };
 		3F75DEFF1A7C406100735B84 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libresolv.dylib; sourceTree = DEVELOPER_DIR; };
-		3FC7BDBF1A796BD100EF5ED8 /* debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = debug.c; sourceTree = "<group>"; };
-		3FC7BDC11A796CA700EF5ED8 /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
 		3FC7DCDF1A7BEA5A00EF5ED8 /* bzlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bzlib.h; sourceTree = "<group>"; };
 		3FC7DCE01A7BEA5A00EF5ED8 /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = error.h; sourceTree = "<group>"; };
 		3FC7DCE31A7BEA5B00EF5ED8 /* gdesktopappinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gdesktopappinfo.h; sourceTree = "<group>"; };
@@ -912,7 +903,6 @@
 		3FC7DFD91A7BEA5C00EF5ED8 /* zlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zlib.h; sourceTree = "<group>"; };
 		F8E98D6B19F264B20009F66F /* TestSendReceive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestSendReceive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E98D6F19F264B20009F66F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8E98D7019F264B20009F66F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8E98D7519F264B20009F66F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F8E98D7719F264B20009F66F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F8E98D7A19F264B20009F66F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -931,7 +921,6 @@
 		F8E993D319F4DDDB0009F66F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F8E993D519F4DE0A0009F66F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		F8E999F519F4FDA50009F66F /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		F8E999F719F4FF420009F66F /* TestSendReceive-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestSendReceive-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -942,7 +931,6 @@
 				3F75DEDA1A7C38E900735B84 /* libglib-2.0.a in Frameworks */,
 				3F75DE811A7C028400735B84 /* libgsterdtls.a in Frameworks */,
 				F8E999F619F4FDA50009F66F /* GLKit.framework in Frameworks */,
-				3F75DD3E1A7BFA0700735B84 /* libopenwebrtc_bridge.a in Frameworks */,
 				F8E993D619F4DE0B0009F66F /* CoreMedia.framework in Frameworks */,
 				F8E993D419F4DDDB0009F66F /* libz.dylib in Frameworks */,
 				3F75DE8A1A7C028400735B84 /* libgstrtpmanager.a in Frameworks */,
@@ -971,7 +959,6 @@
 				3F75DEF21A7C38E900735B84 /* libiconv.a in Frameworks */,
 				3F75DE911A7C028400735B84 /* libgstvideoparsersbad.a in Frameworks */,
 				3F75DE8B1A7C028400735B84 /* libgstsrtp.a in Frameworks */,
-				3F75DE9D1A7C034D00735B84 /* libvpx.a in Frameworks */,
 				F8E993CE19F4DDB30009F66F /* libc++.dylib in Frameworks */,
 				3F75DE891A7C028400735B84 /* libgstrtp.a in Frameworks */,
 				3F75DE971A7C028400735B84 /* libgstvpx.a in Frameworks */,
@@ -980,7 +967,6 @@
 				3F75DE901A7C028400735B84 /* libgstvideofilter.a in Frameworks */,
 				F8E98D9C19F2C0200009F66F /* AudioToolbox.framework in Frameworks */,
 				3F75DEFC1A7C38E900735B84 /* libsrtp.a in Frameworks */,
-				3F75DE9B1A7C033E00735B84 /* libssl.a in Frameworks */,
 				3F75DEFB1A7C38E900735B84 /* libseed-gtk3.a in Frameworks */,
 				3F75DE7B1A7C028400735B84 /* libgstaudioconvert.a in Frameworks */,
 				3F75DF001A7C406100735B84 /* libresolv.dylib in Frameworks */,
@@ -993,7 +979,6 @@
 				3F75DEEB1A7C38E900735B84 /* libgstriff-1.0.a in Frameworks */,
 				3F75DEEF1A7C38E900735B84 /* libgsttag-1.0.a in Frameworks */,
 				F8E98D9F19F2C0200009F66F /* CoreGraphics.framework in Frameworks */,
-				3F75DD3F1A7BFA0700735B84 /* libopenwebrtc.a in Frameworks */,
 				3F75DE951A7C028400735B84 /* libgstvideotestsrc.a in Frameworks */,
 				3F75DEF41A7C38E900735B84 /* libnice.a in Frameworks */,
 				3F75DE7E1A7C028400735B84 /* libgstaudiotestsrc.a in Frameworks */,
@@ -1003,7 +988,6 @@
 				3F75DEF51A7C38E900735B84 /* libopenh264.a in Frameworks */,
 				3F75DEE11A7C38E900735B84 /* libgstbadbase-1.0.a in Frameworks */,
 				3F75DEFD1A7C38E900735B84 /* libssl.a in Frameworks */,
-				3F75DE991A7C032400735B84 /* libcrypto.a in Frameworks */,
 				3F75DE7C1A7C028400735B84 /* libgstaudiorate.a in Frameworks */,
 				F8E98DA019F2C0200009F66F /* CoreVideo.framework in Frameworks */,
 				3F75DEDE1A7C38E900735B84 /* libgstallocators-1.0.a in Frameworks */,
@@ -1127,14 +1111,6 @@
 				3F75DED01A7C38E900735B84 /* libsrtp.a */,
 				3F75DED11A7C38E900735B84 /* libssl.a */,
 				3F75DED21A7C38E900735B84 /* libvpx.a */,
-			);
-			name = OpenWebRTC;
-			sourceTree = "<group>";
-		};
-		3FC7085A1A7BEABD00EF5ED8 /* OpenWebRTC */ = {
-			isa = PBXGroup;
-			children = (
-				3FC7DCDE1A7BEA5A00EF5ED8 /* include */,
 			);
 			name = OpenWebRTC;
 			sourceTree = "<group>";
@@ -2258,15 +2234,14 @@
 		F8E98D6D19F264B20009F66F /* TestSendReceive */ = {
 			isa = PBXGroup;
 			children = (
-				F8E98D7019F264B20009F66F /* AppDelegate.swift */,
+				3F2342551A9D4BCE00171D2B /* AppDelegate.h */,
+				3F2342561A9D4BCE00171D2B /* AppDelegate.m */,
 				F8E98D7419F264B20009F66F /* Main.storyboard */,
 				F8E98D7719F264B20009F66F /* Images.xcassets */,
 				F8E98D7919F264B20009F66F /* LaunchScreen.xib */,
 				F8E98D6E19F264B20009F66F /* Supporting Files */,
 				F8E993CA19F42A3A0009F66F /* TestViewController.h */,
 				F8E993CB19F42A3A0009F66F /* TestViewController.m */,
-				3FC7BDBF1A796BD100EF5ED8 /* debug.c */,
-				3FC7BDC11A796CA700EF5ED8 /* debug.h */,
 			);
 			path = TestSendReceive;
 			sourceTree = "<group>";
@@ -2274,7 +2249,7 @@
 		F8E98D6E19F264B20009F66F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F8E999F719F4FF420009F66F /* TestSendReceive-Bridging-Header.h */,
+				3F23428A1A9D539300171D2B /* main.m */,
 				F8E98D6F19F264B20009F66F /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -2283,6 +2258,7 @@
 		F8E98D9019F2ADFD0009F66F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3FC7DCDE1A7BEA5A00EF5ED8 /* include */,
 				3F75DEA61A7C38DC00735B84 /* OpenWebRTC */,
 				F8E98D9119F2C01F0009F66F /* AssetsLibrary.framework */,
 				F8E98D9219F2C01F0009F66F /* AudioToolbox.framework */,
@@ -2293,15 +2269,9 @@
 				F8E98D9619F2C0200009F66F /* CoreVideo.framework */,
 				F8E999F519F4FDA50009F66F /* GLKit.framework */,
 				F8E993CD19F4DDB30009F66F /* libc++.dylib */,
-				3F75DE981A7C032400735B84 /* libcrypto.a */,
-				3F75DD3C1A7BFA0700735B84 /* libopenwebrtc_bridge.a */,
-				3F75DD3D1A7BFA0700735B84 /* libopenwebrtc.a */,
-				3F75DE9A1A7C033E00735B84 /* libssl.a */,
-				3F75DE9C1A7C034D00735B84 /* libvpx.a */,
 				3F75DEFF1A7C406100735B84 /* libresolv.dylib */,
 				F8E993D319F4DDDB0009F66F /* libz.dylib */,
 				F8E98D9819F2C0200009F66F /* OpenGLES.framework */,
-				3FC7085A1A7BEABD00EF5ED8 /* OpenWebRTC */,
 				F8E98D9919F2C0200009F66F /* QuartzCore.framework */,
 				F8E98D9A19F2C0200009F66F /* VideoToolbox.framework */,
 			);
@@ -2379,9 +2349,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FC7BDC01A796BD100EF5ED8 /* debug.c in Sources */,
-				F8E98D7119F264B20009F66F /* AppDelegate.swift in Sources */,
 				F8E993CC19F42A3A0009F66F /* TestViewController.m in Sources */,
+				3F23428B1A9D539300171D2B /* main.m in Sources */,
+				3F2342571A9D4BCE00171D2B /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2411,6 +2381,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				CERBERO_DIST = "$(HOME)/cerbero/dist";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2441,7 +2413,35 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=arm64]" = (
+					"$(inherited)",
+					"$(CERBERO_DIST)/ios_arm64/include",
+					"$(CERBERO_DIST)/ios_arm64/include/glib-2.0",
+					"$(CERBERO_DIST)/ios_arm64/lib/glib-2.0/include",
+					"$(CERBERO_DIST)/ios_arm64/include/gstreamer-1.0",
+					"$(CERBERO_DIST)/ios_arm64/lib/gstreamer-1.0/include",
+				);
+				"HEADER_SEARCH_PATHS[arch=armv7]" = (
+					"$(inherited)",
+					"$(CERBERO_DIST)/ios_armv7/include",
+					"$(CERBERO_DIST)/ios_armv7/include/glib-2.0",
+					"$(CERBERO_DIST)/ios_armv7/lib/glib-2.0/include",
+					"$(CERBERO_DIST)/ios_armv7/include/gstreamer-1.0",
+					"$(CERBERO_DIST)/ios_armv7/lib/gstreamer-1.0/include",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				"LIBRARY_SEARCH_PATHS[arch=arm64]" = (
+					"$(CERBERO_DIST)/ios_arm64/lib/static",
+					"$(CERBERO_DIST)/ios_arm64/lib/gstreamer-1.0/static",
+					"$(inherited)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib",
+				);
+				"LIBRARY_SEARCH_PATHS[arch=armv7]" = (
+					"$(CERBERO_DIST)/ios_armv7/lib/static",
+					"$(CERBERO_DIST)/ios_armv7/lib/gstreamer-1.0/static",
+					"$(inherited)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2454,6 +2454,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				CERBERO_DIST = "$(HOME)/cerbero/dist";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2478,7 +2480,35 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=arm64]" = (
+					"$(inherited)",
+					"$(CERBERO_DIST)/ios_arm64/include",
+					"$(CERBERO_DIST)/ios_arm64/include/glib-2.0",
+					"$(CERBERO_DIST)/ios_arm64/lib/glib-2.0/include",
+					"$(CERBERO_DIST)/ios_arm64/include/gstreamer-1.0",
+					"$(CERBERO_DIST)/ios_arm64/lib/gstreamer-1.0/include",
+				);
+				"HEADER_SEARCH_PATHS[arch=armv7]" = (
+					"$(inherited)",
+					"$(CERBERO_DIST)/ios_armv7/include",
+					"$(CERBERO_DIST)/ios_armv7/include/glib-2.0",
+					"$(CERBERO_DIST)/ios_armv7/lib/glib-2.0/include",
+					"$(CERBERO_DIST)/ios_armv7/include/gstreamer-1.0",
+					"$(CERBERO_DIST)/ios_armv7/lib/gstreamer-1.0/include",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				"LIBRARY_SEARCH_PATHS[arch=arm64]" = (
+					"$(CERBERO_DIST)/ios_arm64/lib/static",
+					"$(CERBERO_DIST)/ios_arm64/lib/gstreamer-1.0/static",
+					"$(inherited)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib",
+				);
+				"LIBRARY_SEARCH_PATHS[arch=armv7]" = (
+					"$(CERBERO_DIST)/ios_armv7/lib/static",
+					"$(CERBERO_DIST)/ios_armv7/lib/gstreamer-1.0/static",
+					"$(inherited)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2493,28 +2523,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(HOME)/cerbero/dist/ios_arm64/include",
-					"$(HOME)/cerbero/dist/ios_arm64/include/glib-2.0",
-					"$(HOME)/cerbero/dist/ios_arm64/lib/glib-2.0/include",
-					"$(HOME)/cerbero/dist/ios_arm64/include/gstreamer-1.0",
-					"$(HOME)/cerbero/dist/ios_arm64/lib/gstreamer-1.0/include",
-				);
 				INFOPLIST_FILE = TestSendReceive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"/Users/RESEARCH-MAC4/cerbero/dist/ios_arm64/lib/static",
-					"/Users/RESEARCH-MAC4/cerbero/dist/ios_arm64/lib/gstreamer-1.0/static",
-					"$(inherited)",
-					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib",
-				);
 				PRODUCT_NAME = TestSendReceive;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "TestSendReceive/TestSendReceive-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				VALID_ARCHS = arm64;
 			};
 			name = Debug;
 		};
@@ -2525,27 +2537,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(HOME)/cerbero/dist/ios_arm64/include",
-					"$(HOME)/cerbero/dist/ios_arm64/include/glib-2.0",
-					"$(HOME)/cerbero/dist/ios_arm64/lib/glib-2.0/include",
-					"$(HOME)/cerbero/dist/ios_arm64/include/gstreamer-1.0",
-					"$(HOME)/cerbero/dist/ios_arm64/lib/gstreamer-1.0/include",
-				);
 				INFOPLIST_FILE = TestSendReceive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"/Users/RESEARCH-MAC4/cerbero/dist/ios_arm64/lib/static",
-					"/Users/RESEARCH-MAC4/cerbero/dist/ios_arm64/lib/gstreamer-1.0/static",
-					"$(inherited)",
-					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib",
-				);
 				PRODUCT_NAME = TestSendReceive;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "TestSendReceive/TestSendReceive-Bridging-Header.h";
-				VALID_ARCHS = arm64;
 			};
 			name = Release;
 		};

@@ -13,6 +13,8 @@
 #include <owr/owr_transport_agent.h>
 #include <owr/owr_media_session.h>
 
+#include <gst/gst.h>
+
 #define OWR_VIEW_TAG "owr-view"
 
 @interface TestViewController ()
@@ -23,26 +25,54 @@
 
 @implementation TestViewController
 
-OwrVideoRenderer *videoRenderer = NULL;
-OwrAudioRenderer *audioRenderer = NULL;
-OwrMediaSession *recv_session_audio = NULL, *recv_session_video = NULL, *send_session_audio = NULL, *send_session_video = NULL;
-OwrTransportAgent *send_transport_agent, *recv_transport_agent;
-
 // Whether to render the local view (before sending)
-#undef RENDER_SELF_VIEW
+// #define RENDER_SELF_VIEW
 
-// Disabling this flag keeps only audio support
-bool use_video = false;
+// Define to use the OPUS codec (48000kHz)
+// Undefine to use aLaw PCM (8000kHz), e.g. to test CPU load without OPUS encoding/decoding overhead
+#define OPUS
+
+// Define to disable TLS, e.g. to test CPU load without crypto overhead.
+#define DISABLE_DTLS
+
+// Define this to perform the normal send-receive loopback over TCP
+// Undefine to test "self-view" performance and related bugs without dealing
+// with the transport pipeline and codecs bugs / performance.
+#define TEST_LOOPBACK
+
+// Renders either self-view video or loopback (encoded and decoded) video.
+OwrVideoRenderer *video_renderer = NULL;
+
+// Renders either self-view audio or loopback (encoded and decoded) audio.
+OwrAudioRenderer *audio_renderer = NULL;
+
+OwrMediaSource *audio_source = NULL, *video_source = NULL;
+
+// Sessions for sending and receiving video in loopback mode
+#ifdef TEST_LOOPBACK
+OwrMediaSession
+    *recv_session_audio = NULL,
+    *recv_session_video = NULL,
+    *send_session_audio = NULL,
+    *send_session_video = NULL;
+
+OwrTransportAgent
+    *send_transport_agent,
+    *recv_transport_agent;
+#endif
+
+// Disabling this flag keeps only audio support.
+// This is useful for testing purely audio bugs and performance.
+const bool USE_VIDEO = false;
 
 int video_width, video_height;
 float transmit_frame_rate, render_frame_rate;
-guint audio_sample_rate;
-guint audio_channels;
+// The audio sample rate for the selected code.
+// Might be different from the hardware sample rate.
+guint audio_codec_rate;
+// The number of channels for the codec.
+guint audio_codec_channels;
 OwrCodecType audio_codec_type;
-
-#define OPUS
-const int PCMA_SAMPLE_RATE = 8000;
-const int OPUS_SAMPLE_RATE = 48000;
 
 // Instead of using owr_init, we initialize our own owr_loop_thread
 GMainContext *owr_context;
@@ -54,13 +84,13 @@ GThread *owr_thread;
     [super viewDidLoad];
     
 #ifdef OPUS
-    audio_sample_rate = OPUS_SAMPLE_RATE;
+    audio_codec_rate = 48000;
     audio_codec_type = OWR_CODEC_TYPE_OPUS;
-    audio_channels = 1;
+    audio_codec_channels = 1;
 #else
-    audio_sample_rate = PCMA_SAMPLE_RATE;
+    audio_codec_rate = 8000;
     audio_codec_type = OWR_CODEC_TYPE_PCMA;
-    audio_channels = 1;
+    audio_codec_channels = 1;
 #endif
 
     transmit_frame_rate = 30.0;
@@ -80,32 +110,30 @@ GThread *owr_thread;
 #endif
 
     // Setup the AVAudioSession -- otherwise, AudioUnitInitialize would fail
-    AVAudioSession *mySession = [AVAudioSession sharedInstance];
-    NSError *audioSessionError = nil;
+    AVAudioSession *theSession = [AVAudioSession sharedInstance];
 
-#if 0
-    [mySession setPreferredSampleRate:audio_sample_rate  error:&audioSessionError];
-    unsigned int hardcoded_frames = 4196; // from osxaudio gst source code
-    NSTimeInterval bufferDuration = (double)hardcoded_frames / (double)audio_sample_rate;
-    [mySession setPreferredIOBufferDuration:bufferDuration error:&audioSessionError];
-    [mySession setPreferredInputNumberOfChannels:audio_channels error:&audioSessionError];
-    [mySession setPreferredOutputNumberOfChannels:audio_channels error:&audioSessionError];
+#if TEST_CUSTOM_SESSION_RATE
+    [theSession setPreferredSampleRate:32000 error:nil];
+#else
+    [theSession setPreferredSampleRate:audio_codec_rate error:nil];
 #endif
-    [mySession setCategory: AVAudioSessionCategoryPlayAndRecord error:&audioSessionError];
-
-    [mySession setActive:YES error:&audioSessionError];
     
-    // Confirm our settings now, once the AVAudioSession is active
-#if 0
-    double preferred_audio_sample_rate = [mySession sampleRate];
-    assert(audio_sample_rate == preferred_audio_sample_rate);
-    // We have to accept what the system gives us still
-    audio_sample_rate = preferred_audio_sample_rate;
-#endif
+    [theSession setMode:AVAudioSessionModeVideoChat error:nil];
+    [theSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    [theSession setActive:YES error:nil];
+    
+    // GStreamer debug settings
+    gst_debug_set_threshold_from_string("*:2", TRUE);
+    gst_debug_set_color_mode(GST_DEBUG_COLOR_MODE_OFF); // colors and XCode console don't mix
+    
+    // Tip: It's possible to dump .dot files the the iOS container
+    // and then fetch and inspect the container, but it's *much* easier to use:
+    //
+    // https://gist.github.com/ikonst/6874ff814ab7f2530b2a
+    //
     setenv("GST_DEBUG_DUMP_DOT_DIR", [NSTemporaryDirectory() cStringUsingEncoding:NSUTF8StringEncoding], 1);
-    setenv("GST_DEBUG", "0", 1);
-    setenv("GST_DEBUG_NO_COLOR", "1", 1); // colors don't display on XCode console
-    
+
+    // Create OWR context
     owr_context = g_main_context_default();
     owr_main_loop  = g_main_loop_new(owr_context, FALSE);
     owr_init_with_main_context(owr_context);
@@ -151,6 +179,7 @@ gboolean my_owr_setup(gpointer user_data) {
     //
     //       We should get GST to do it within the pipeline.
     
+#ifdef TEST_LOOPBACK
     /* PREPARE FOR RECEIVING */
     {
         recv_transport_agent = owr_transport_agent_new(FALSE);
@@ -170,21 +199,26 @@ gboolean my_owr_setup(gpointer user_data) {
     }
     
     recv_session_audio = owr_media_session_new(FALSE);
-    if (use_video)
+    if (USE_VIDEO)
         recv_session_video = owr_media_session_new(FALSE);
     send_session_audio = owr_media_session_new(TRUE);
-    if (use_video)
+    if (USE_VIDEO)
         send_session_video = owr_media_session_new(TRUE);
     
     g_signal_connect(recv_session_audio, "on-new-candidate", G_CALLBACK(got_candidate), send_session_audio);
-    if (use_video)
+    if (USE_VIDEO)
         g_signal_connect(recv_session_video, "on-new-candidate", G_CALLBACK(got_candidate), send_session_video);
     g_signal_connect(send_session_audio, "on-new-candidate", G_CALLBACK(got_candidate), recv_session_audio);
-    if (use_video)
+    if (USE_VIDEO)
         g_signal_connect(send_session_video, "on-new-candidate", G_CALLBACK(got_candidate), recv_session_video);
     
+#ifdef DISABLE_DTLS
+    g_object_set(recv_session_audio, "dtls-certificate", NULL, NULL);
+    g_object_set(send_session_audio, "dtls-certificate", NULL, NULL);
+#endif
+    
     // VIDEO
-    if (use_video) {
+    if (USE_VIDEO) {
         g_signal_connect(recv_session_video, "on-incoming-source", G_CALLBACK(got_remote_source), NULL);
         
         // 103 is a dynamic payload type (see RTP payload types)
@@ -198,17 +232,18 @@ gboolean my_owr_setup(gpointer user_data) {
     {
         g_signal_connect(recv_session_audio, "on-incoming-source", G_CALLBACK(got_remote_source), NULL);
         
-        OwrPayload *receive_payload = owr_audio_payload_new(audio_codec_type, 100, audio_sample_rate, audio_channels);
+        OwrPayload *receive_payload = owr_audio_payload_new(audio_codec_type, 100, audio_codec_rate, audio_codec_channels);
         owr_media_session_add_receive_payload(recv_session_audio, receive_payload);
         
         owr_transport_agent_add_session(recv_transport_agent, OWR_SESSION(recv_session_audio));
     }
+#endif
     
     /* PREPARE FOR SENDING */
     
     NSLog(@"Getting capture sources...");
     OwrMediaType mediaTypes = OWR_MEDIA_TYPE_AUDIO;
-    if (use_video)
+    if (USE_VIDEO)
         mediaTypes |= OWR_MEDIA_TYPE_VIDEO;
     owr_get_capture_sources(mediaTypes, got_sources, NULL);
 }
@@ -233,21 +268,23 @@ static void got_remote_source(OwrMediaSession *session, OwrMediaSource *source, 
     g_print("Got remote source: %s\n", name);
     
     if (media_type == OWR_MEDIA_TYPE_VIDEO) {
-        OwrVideoRenderer *renderer;
-        
         g_print("Creating video renderer\n");
-        renderer = owr_video_renderer_new(OWR_VIEW_TAG);
+        OwrVideoRenderer *renderer = owr_video_renderer_new(OWR_VIEW_TAG);
         g_assert(renderer);
         
+        if (!video_renderer)
+            video_renderer = renderer;
+
         g_print("Connecting source to video renderer\n");
         owr_media_renderer_set_source(OWR_MEDIA_RENDERER(renderer), source);
         owr_renderer = OWR_MEDIA_RENDERER(renderer);
     } else if (media_type == OWR_MEDIA_TYPE_AUDIO) {
-        OwrAudioRenderer *renderer;
-        
         g_print("Creating audio renderer\n");
-        renderer = owr_audio_renderer_new();
+        OwrAudioRenderer *renderer = owr_audio_renderer_new();
         g_assert(renderer);
+        
+        if (!audio_renderer)
+            audio_renderer = renderer;
         
         g_print("Connecting source to audio renderer\n");
         owr_media_renderer_set_source(OWR_MEDIA_RENDERER(renderer), source);
@@ -255,14 +292,6 @@ static void got_remote_source(OwrMediaSession *session, OwrMediaSource *source, 
     }
     
     g_free(name);
-
-    if (media_type == OWR_MEDIA_TYPE_VIDEO) {
-        write_dot_file("test_receive-got_remote_source-video-source", owr_media_source_get_dot_data(source), TRUE);
-        write_dot_file("test_receive-got_remote_source-video-renderer", owr_media_renderer_get_dot_data(owr_renderer), TRUE);
-    } else {
-        write_dot_file("test_receive-got_remote_source-audio-source", owr_media_source_get_dot_data(source), TRUE);
-        write_dot_file("test_receive-got_remote_source-audio-renderer", owr_media_renderer_get_dot_data(owr_renderer), TRUE);
-    }
 }
 
 static void got_candidate(OwrMediaSession *session_a, OwrCandidate *candidate, OwrMediaSession *session_b)
@@ -270,13 +299,36 @@ static void got_candidate(OwrMediaSession *session_a, OwrCandidate *candidate, O
     owr_session_add_remote_candidate(OWR_SESSION(session_b), candidate);
 }
 
+#ifdef HACK
+// HACK
+struct _OwrMediaRendererPrivate {
+    GMutex media_renderer_lock;
+    OwrMediaType media_type;
+    OwrMediaSource *source;
+    gboolean disabled;
+    
+    GstElement *pipeline;
+    GstElement *src, *sink;
+};
+
+// HACK
+struct _OwrMediaSourcePrivate {
+    gchar *name;
+    OwrMediaType media_type;
+    
+    OwrSourceType type;
+    OwrCodecType codec_type;
+    
+    /* The bin or pipeline that contains the data producers */
+    GstElement *source_bin;
+    /* Tee element from which we can tap the source for multiple consumers */
+    GstElement *source_tee;
+};
+#endif // HACK
+
 static void got_sources(GList *sources, gpointer user_data)
 {
     static gboolean have_video = FALSE, have_audio = FALSE;
-#ifdef RENDER_SELF_VIEW
-    OwrMediaRenderer *video_renderer = NULL;
-#endif
-    OwrMediaSource *audio_source = NULL, *video_source = NULL;
     
     g_assert(sources);
     
@@ -293,7 +345,7 @@ static void got_sources(GList *sources, gpointer user_data)
         if (!have_video && is_back_camera && media_type == OWR_MEDIA_TYPE_VIDEO && source_type == OWR_SOURCE_TYPE_CAPTURE) {
             have_video = TRUE;
             
-            
+#ifdef TEST_LOOPBACK
             OwrPayload *payload = owr_video_payload_new(OWR_CODEC_TYPE_H264, 103, 90000, TRUE, FALSE);
             g_object_set(payload, "width", video_width, "height", video_height, "framerate", transmit_frame_rate, NULL);
             owr_media_session_set_send_payload(send_session_video, payload);
@@ -301,11 +353,12 @@ static void got_sources(GList *sources, gpointer user_data)
             owr_media_session_set_send_source(send_session_video, source);
             
             owr_transport_agent_add_session(send_transport_agent, OWR_SESSION(send_session_video));
+#endif
             
 #ifdef RENDER_SELF_VIEW
             g_print("Displaying self-view\n");
             
-            OwrVideoRenderer *renderer = owr_video_renderer_new(NULL);
+            Owrvideo_renderer *renderer = owr_video_renderer_new(NULL);
             g_assert(renderer);
             g_object_set(renderer, "width", video_width, "height", video_height, "max-framerate", transmit_frame_rate, NULL);
             owr_media_renderer_set_source(OWR_MEDIA_RENDERER(renderer), source);
@@ -315,52 +368,74 @@ static void got_sources(GList *sources, gpointer user_data)
         } else if (!have_audio && media_type == OWR_MEDIA_TYPE_AUDIO && source_type == OWR_SOURCE_TYPE_CAPTURE) {
             have_audio = TRUE;
             
-            OwrPayload *payload = owr_audio_payload_new(audio_codec_type, 100, audio_sample_rate, audio_channels);
+#ifdef TEST_LOOPBACK
+            OwrPayload *payload = owr_audio_payload_new(audio_codec_type, 100, audio_codec_rate, audio_codec_channels);
             owr_media_session_set_send_payload(send_session_audio, payload);
             
             owr_media_session_set_send_source(send_session_audio, source);
             
             owr_transport_agent_add_session(send_transport_agent, OWR_SESSION(send_session_audio));
+#endif
             
+#ifdef RENDER_SELF_VIEW
+            g_print("Playing self-listen\n");
+            
+            OwrAudioRenderer *renderer = owr_audio_renderer_new();
+            g_assert(renderer);
+
+            // HACK: Adjust buffer-time and latency-time
+#ifdef HACK
+            GstBin *render_bin = (GstBin*)renderer->parent_instance.priv->pipeline;
+            GstBin *audio_render_bin0 = (GstBin*)gst_bin_get_by_name(render_bin, "audio-renderer-bin-0");
+            GstElement *osxaudio_sink = gst_bin_get_by_name(render_bin, "audio-renderer-sink");
+            g_object_set(osxaudio_sink, "buffer-time", 40000,
+                         "latency-time", G_GINT64_CONSTANT(10000), NULL);
+            GstElement *render_volume = gst_bin_get_by_name(render_bin, "audio-renderer-volume");
+            gst_element_unlink(render_volume, osxaudio_sink);
+            // add fake sink
+            GstElement *fakesink = gst_element_factory_make("fakesink", "my-fakesink");
+            g_object_set(fakesink, "async", FALSE, NULL);
+            gst_bin_add(audio_render_bin0, fakesink);
+            gst_element_link(render_volume, fakesink);
+#endif // HACK
+
+            owr_media_renderer_set_source(OWR_MEDIA_RENDERER(renderer), source);
+
+#ifdef HACK
+            // HACK
+            GstBin *source_bin = (GstBin*)source->priv->source_bin;
+            GstElement *sink_bin = gst_bin_get_by_name(source_bin, "source-sink-bin-0");
+            gst_element_unlink(source->priv->source_tee, sink_bin); // unlink from actual pipeline
+      
+#define OUTPUT_QUEUE
+#ifdef OUTPUT_QUEUE
+            GstElement *osxaudio_sink_queue = gst_element_factory_make("queue", "osxaudio_sink_queue");
+            gst_bin_add(source_bin, osxaudio_sink_queue);
+#endif
+            
+            gst_bin_remove(audio_render_bin0, osxaudio_sink);
+            gst_bin_add(source_bin, osxaudio_sink);
+#ifdef OUTPUT_QUEUE
+            gst_element_link(source->priv->source_tee, osxaudio_sink_queue); // hacker's link
+            gst_element_link(osxaudio_sink_queue, osxaudio_sink);
+            gst_element_set_state(osxaudio_sink_queue, GST_STATE_PLAYING);
+#else
+            gst_element_link(source->priv->source_tee, osxaudio_sink);
+#endif
+            gst_element_set_state(osxaudio_sink, GST_STATE_PLAYING);
+#endif // HACK
+            
+            audio_renderer = OWR_MEDIA_RENDERER(renderer);
+#endif
             audio_source = source;
         }
         
         g_free(source_name);
         
-        if ((!use_video || have_video) && have_audio)
+        if ((!USE_VIDEO || have_video) && have_audio)
             break;
     }
-
-    if (audio_source)
-        write_dot_file("test_send-got_source-audio-source", owr_media_source_get_dot_data(audio_source), TRUE);
-    if (video_source)
-        write_dot_file("test_send-got_source-video-source", owr_media_source_get_dot_data(video_source), TRUE);
-#ifdef RENDER_SELF_VIEW
-    if (video_renderer)
-        write_dot_file("test_send-got_source-video-renderer", owr_media_renderer_get_dot_data(video_renderer), TRUE);
-#endif
 }
 
-void write_dot_file(const gchar *base_file_name, gchar *dot_data, gboolean with_timestamp)
-{
-    g_return_if_fail(base_file_name);
-    g_return_if_fail(dot_data);
-    
-    gchar *timestamp = NULL;
-    if (with_timestamp) {
-        GTimeVal time;
-        g_get_current_time(&time);
-        timestamp = g_time_val_to_iso8601(&time);
-    }
-    
-    const char *path = [NSTemporaryDirectory() cStringUsingEncoding:NSUTF8StringEncoding];
-    gchar *filename = g_strdup_printf("%s/%s%s%s.dot", path[0] ? path : ".",
-                               timestamp ? timestamp : "", timestamp ? "-" : "", base_file_name);
-    gboolean success = g_file_set_contents(filename, dot_data, -1, NULL);
-    g_warn_if_fail(success);
-    
-    g_free(dot_data);
-    g_free(filename);
-    g_free(timestamp);
-}
 @end
+
