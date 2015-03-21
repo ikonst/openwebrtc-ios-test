@@ -25,6 +25,9 @@
 
 @implementation TestViewController
 
+// Workaround for https://github.com/EricssonResearch/openwebrtc/issues/225
+#define OWR_INIT_WITH_MAIN_CONTEXT
+
 // Whether to render the local view (before sending)
 // #define RENDER_SELF_VIEW
 
@@ -133,6 +136,7 @@ GThread *owr_thread;
     //
     setenv("GST_DEBUG_DUMP_DOT_DIR", [NSTemporaryDirectory() cStringUsingEncoding:NSUTF8StringEncoding], 1);
 
+#ifdef OWR_INIT_WITH_MAIN_CONTEXT
     // Create OWR context
     owr_context = g_main_context_default();
     owr_main_loop  = g_main_loop_new(owr_context, FALSE);
@@ -142,8 +146,13 @@ GThread *owr_thread;
     
     // all owr calls should occur on the thread owning the owr main context
     g_main_context_invoke(NULL, my_owr_setup, (__bridge gpointer)(self));
+#else
+    owr_init();
+    [self owrSetup];
+#endif
 }
 
+#ifdef OWR_INIT_WITH_MAIN_CONTEXT
 // Trampoline to '- (gpointer)owrMainLoop'
 static gpointer my_owr_main_loop(gpointer data) {
     return [((__bridge TestViewController*)data) owrMainLoop];
@@ -161,6 +170,7 @@ gboolean my_owr_setup(gpointer user_data) {
     [((__bridge TestViewController*)user_data) owrSetup];
     return G_SOURCE_REMOVE;
 }
+#endif
 
 - (void)owrSetup {
     /* PREPARE FOR RENDERING VIDEO */
