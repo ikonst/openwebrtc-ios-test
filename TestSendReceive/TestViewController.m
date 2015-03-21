@@ -123,6 +123,7 @@ GThread *owr_thread;
     
     [theSession setMode:AVAudioSessionModeVideoChat error:nil];
     [theSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    [theSession setPreferredOutputNumberOfChannels:2 error:nil];
     [theSession setActive:YES error:nil];
     
     // GStreamer debug settings
