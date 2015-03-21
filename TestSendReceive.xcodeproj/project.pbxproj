@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1A011B1ABDD28E00A0030C /* libgstsctp-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1A011A1ABDD28E00A0030C /* libgstsctp-1.0.a */; };
+		3F1A011D1ABDD36100A0030C /* libgstdtls.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1A011C1ABDD36100A0030C /* libgstdtls.a */; };
+		3F1A011F1ABDD36C00A0030C /* libgstsctp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1A011E1ABDD36C00A0030C /* libgstsctp.a */; };
+		3F1A01211ABDD65000A0030C /* libusrsctp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1A01201ABDD65000A0030C /* libusrsctp.a */; };
 		3F2342571A9D4BCE00171D2B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2342561A9D4BCE00171D2B /* AppDelegate.m */; };
 		3F23428B1A9D539300171D2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F23428A1A9D539300171D2B /* main.m */; };
 		3F75DE781A7C028400735B84 /* libgstalaw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE581A7C028400735B84 /* libgstalaw.a */; };
@@ -106,6 +110,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F1A011A1ABDD28E00A0030C /* libgstsctp-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstsctp-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstsctp-1.0.a"; sourceTree = "<group>"; };
+		3F1A011C1ABDD36100A0030C /* libgstdtls.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstdtls.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstdtls.a"; sourceTree = "<group>"; };
+		3F1A011E1ABDD36C00A0030C /* libgstsctp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstsctp.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstsctp.a"; sourceTree = "<group>"; };
+		3F1A01201ABDD65000A0030C /* libusrsctp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libusrsctp.a; path = ../../cerbero/dist/ios_arm64/lib/static/libusrsctp.a; sourceTree = "<group>"; };
 		3F2342551A9D4BCE00171D2B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3F2342561A9D4BCE00171D2B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3F23428A1A9D539300171D2B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -947,6 +955,8 @@
 				3F75DEFA1A7C38E900735B84 /* liborc-test-0.4.a in Frameworks */,
 				3F75DEEA1A7C38E900735B84 /* libgstreamer-1.0.a in Frameworks */,
 				3F75DE941A7C028400735B84 /* libgstvideoscale.a in Frameworks */,
+				3F1A011F1ABDD36C00A0030C /* libgstsctp.a in Frameworks */,
+				3F1A011D1ABDD36100A0030C /* libgstdtls.a in Frameworks */,
 				3F75DE8F1A7C028400735B84 /* libgstvideocrop.a in Frameworks */,
 				3F75DE831A7C028400735B84 /* libgstmulaw.a in Frameworks */,
 				3F75DE871A7C028400735B84 /* libgstopus.a in Frameworks */,
@@ -955,6 +965,7 @@
 				3F75DED51A7C38E900735B84 /* libcrypto.a in Frameworks */,
 				3F75DED41A7C38E900735B84 /* libcharset.a in Frameworks */,
 				3F75DED31A7C38E900735B84 /* libbz2.a in Frameworks */,
+				3F1A011B1ABDD28E00A0030C /* libgstsctp-1.0.a in Frameworks */,
 				3F75DE8D1A7C028400735B84 /* libgstudp.a in Frameworks */,
 				3F75DEF21A7C38E900735B84 /* libiconv.a in Frameworks */,
 				3F75DE911A7C028400735B84 /* libgstvideoparsersbad.a in Frameworks */,
@@ -1007,6 +1018,7 @@
 				3F75DEDB1A7C38E900735B84 /* libgmodule-2.0.a in Frameworks */,
 				3F75DEEC1A7C38E900735B84 /* libgstrtp-1.0.a in Frameworks */,
 				3F75DEF61A7C38E900735B84 /* libopenwebrtc_bridge.a in Frameworks */,
+				3F1A01211ABDD65000A0030C /* libusrsctp.a in Frameworks */,
 				3F75DEE91A7C38E900735B84 /* libgstpbutils-1.0.a in Frameworks */,
 				3F75DE851A7C028400735B84 /* libgstopengl.a in Frameworks */,
 				3F75DE7F1A7C028400735B84 /* libgstcoreelements.a in Frameworks */,
@@ -1035,6 +1047,7 @@
 				3F75DE5D1A7C028400735B84 /* libgstaudioresample.a */,
 				3F75DE5E1A7C028400735B84 /* libgstaudiotestsrc.a */,
 				3F75DE5F1A7C028400735B84 /* libgstcoreelements.a */,
+				3F1A011C1ABDD36100A0030C /* libgstdtls.a */,
 				3F75DE601A7C028400735B84 /* libgstercolorspace.a */,
 				3F75DE611A7C028400735B84 /* libgsterdtls.a */,
 				3F75DE621A7C028400735B84 /* libgstinter.a */,
@@ -1046,6 +1059,7 @@
 				3F75DE681A7C028400735B84 /* libgstosxaudio.a */,
 				3F75DE691A7C028400735B84 /* libgstrtp.a */,
 				3F75DE6A1A7C028400735B84 /* libgstrtpmanager.a */,
+				3F1A011E1ABDD36C00A0030C /* libgstsctp.a */,
 				3F75DE6B1A7C028400735B84 /* libgstsrtp.a */,
 				3F75DE6C1A7C028400735B84 /* libgsttypefindfunctions.a */,
 				3F75DE6D1A7C028400735B84 /* libgstudp.a */,
@@ -1094,6 +1108,7 @@
 				3F75DEBF1A7C38E900735B84 /* libgstriff-1.0.a */,
 				3F75DEC01A7C38E900735B84 /* libgstrtp-1.0.a */,
 				3F75DEC11A7C38E900735B84 /* libgstrtsp-1.0.a */,
+				3F1A011A1ABDD28E00A0030C /* libgstsctp-1.0.a */,
 				3F75DEC21A7C38E900735B84 /* libgstsdp-1.0.a */,
 				3F75DEC31A7C38E900735B84 /* libgsttag-1.0.a */,
 				3F75DEC41A7C38E900735B84 /* libgstvideo-1.0.a */,
@@ -1110,6 +1125,7 @@
 				3F75DECF1A7C38E900735B84 /* libseed-gtk3.a */,
 				3F75DED01A7C38E900735B84 /* libsrtp.a */,
 				3F75DED11A7C38E900735B84 /* libssl.a */,
+				3F1A01201ABDD65000A0030C /* libusrsctp.a */,
 				3F75DED21A7C38E900735B84 /* libvpx.a */,
 			);
 			name = OpenWebRTC;
@@ -2525,6 +2541,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TestSendReceive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/RESEARCH-MAC4/cerbero/dist/ios_arm64/lib/static",
+					"/Users/RESEARCH-MAC4/cerbero/dist/ios_arm64/lib/gstreamer-1.0/static",
+				);
 				PRODUCT_NAME = TestSendReceive;
 				PROVISIONING_PROFILE = "";
 			};
@@ -2539,6 +2560,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TestSendReceive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/RESEARCH-MAC4/cerbero/dist/ios_arm64/lib/static",
+					"/Users/RESEARCH-MAC4/cerbero/dist/ios_arm64/lib/gstreamer-1.0/static",
+				);
 				PRODUCT_NAME = TestSendReceive;
 				PROVISIONING_PROFILE = "";
 			};
