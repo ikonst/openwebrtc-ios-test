@@ -25,9 +25,6 @@
 
 @implementation TestViewController
 
-// Workaround for https://github.com/EricssonResearch/openwebrtc/issues/225
-#define OWR_INIT_WITH_MAIN_CONTEXT
-
 // Whether to render the local view (before sending)
 // #define RENDER_SELF_VIEW
 
@@ -76,11 +73,6 @@ guint audio_codec_rate;
 // The number of channels for the codec.
 guint audio_codec_channels;
 OwrCodecType audio_codec_type;
-
-// Instead of using owr_init, we initialize our own owr_loop_thread
-GMainContext *owr_context;
-GMainLoop *owr_main_loop;
-GThread *owr_thread;
 
 - (void)viewDidLoad
 {
@@ -137,41 +129,10 @@ GThread *owr_thread;
     //
     setenv("GST_DEBUG_DUMP_DOT_DIR", [NSTemporaryDirectory() cStringUsingEncoding:NSUTF8StringEncoding], 1);
 
-#ifdef OWR_INIT_WITH_MAIN_CONTEXT
-    // Create OWR context
-    owr_context = g_main_context_default();
-    owr_main_loop  = g_main_loop_new(owr_context, FALSE);
-    owr_init_with_main_context(owr_context);
-    owr_thread = g_thread_new("owr_main_loop", my_owr_main_loop, (__bridge gpointer)(self));
-    NSLog(@"OpenWebRTC initialized");
-    
-    // all owr calls should occur on the thread owning the owr main context
-    g_main_context_invoke(NULL, my_owr_setup, (__bridge gpointer)(self));
-#else
     owr_init();
+    NSLog(@"OpenWebRTC initialized");
     [self owrSetup];
-#endif
 }
-
-#ifdef OWR_INIT_WITH_MAIN_CONTEXT
-// Trampoline to '- (gpointer)owrMainLoop'
-static gpointer my_owr_main_loop(gpointer data) {
-    return [((__bridge TestViewController*)data) owrMainLoop];
-}
-
-- (gpointer) owrMainLoop {
-    g_main_context_push_thread_default(owr_context);
-    g_main_loop_run(owr_main_loop);
-    g_main_context_pop_thread_default(owr_context);
-    return NULL;
-}
-
-// Trampoline to '- (void)owrSetup'
-gboolean my_owr_setup(gpointer user_data) {
-    [((__bridge TestViewController*)user_data) owrSetup];
-    return G_SOURCE_REMOVE;
-}
-#endif
 
 - (void)owrSetup {
     /* PREPARE FOR RENDERING VIDEO */
