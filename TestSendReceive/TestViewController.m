@@ -61,9 +61,11 @@ OwrTransportAgent
     *recv_transport_agent;
 #endif
 
-// Disabling this flag keeps only audio support.
-// This is useful for testing purely audio bugs and performance.
-const bool USE_VIDEO = false;
+// Disable to test purely video bugs and performance.
+const bool USE_AUDIO = false;
+
+// Disable to test purely audio bugs and performance.
+const bool USE_VIDEO = true;
 
 int video_width, video_height;
 float transmit_frame_rate, render_frame_rate;
@@ -170,24 +172,27 @@ OwrCodecType audio_codec_type;
         owr_transport_agent_add_local_address(send_transport_agent, "127.0.0.1");
     }
     
-    recv_session_audio = owr_media_session_new(FALSE);
-    if (USE_VIDEO)
-        recv_session_video = owr_media_session_new(FALSE);
-    send_session_audio = owr_media_session_new(TRUE);
-    if (USE_VIDEO)
-        send_session_video = owr_media_session_new(TRUE);
-    
-    g_signal_connect(recv_session_audio, "on-new-candidate", G_CALLBACK(got_candidate), send_session_audio);
-    if (USE_VIDEO)
-        g_signal_connect(recv_session_video, "on-new-candidate", G_CALLBACK(got_candidate), send_session_video);
-    g_signal_connect(send_session_audio, "on-new-candidate", G_CALLBACK(got_candidate), recv_session_audio);
-    if (USE_VIDEO)
-        g_signal_connect(send_session_video, "on-new-candidate", G_CALLBACK(got_candidate), recv_session_video);
-    
+    if (USE_AUDIO) {
+        recv_session_audio = owr_media_session_new(FALSE);
+        send_session_audio = owr_media_session_new(TRUE);
+        g_signal_connect(recv_session_audio, "on-new-candidate", G_CALLBACK(got_candidate), send_session_audio);
+        g_signal_connect(send_session_audio, "on-new-candidate", G_CALLBACK(got_candidate), recv_session_audio);
 #ifdef DISABLE_DTLS
-    g_object_set(recv_session_audio, "dtls-certificate", NULL, NULL);
-    g_object_set(send_session_audio, "dtls-certificate", NULL, NULL);
+        g_object_set(recv_session_audio, "dtls-certificate", NULL, NULL);
+        g_object_set(send_session_audio, "dtls-certificate", NULL, NULL);
 #endif
+    }
+    
+    if (USE_VIDEO) {
+        recv_session_video = owr_media_session_new(FALSE);
+        send_session_video = owr_media_session_new(TRUE);
+        g_signal_connect(recv_session_video, "on-new-candidate", G_CALLBACK(got_candidate), send_session_video);
+        g_signal_connect(send_session_video, "on-new-candidate", G_CALLBACK(got_candidate), recv_session_video);
+#ifdef DISABLE_DTLS
+        g_object_set(recv_session_video, "dtls-certificate", NULL, NULL);
+        g_object_set(send_session_video, "dtls-certificate", NULL, NULL);
+#endif
+    }
     
     // VIDEO
     if (USE_VIDEO) {
@@ -201,7 +206,7 @@ OwrCodecType audio_codec_type;
     }
     
     // AUDIO
-    {
+    if (USE_AUDIO) {
         g_signal_connect(recv_session_audio, "on-incoming-source", G_CALLBACK(got_remote_source), NULL);
         
         OwrPayload *receive_payload = owr_audio_payload_new(audio_codec_type, 100, audio_codec_rate, audio_codec_channels);
@@ -209,12 +214,14 @@ OwrCodecType audio_codec_type;
         
         owr_transport_agent_add_session(recv_transport_agent, OWR_SESSION(recv_session_audio));
     }
-#endif
+#endif // of TEST_LOOPBACK
     
     /* PREPARE FOR SENDING */
     
     NSLog(@"Getting capture sources...");
-    OwrMediaType mediaTypes = OWR_MEDIA_TYPE_AUDIO;
+    OwrMediaType mediaTypes = 0;
+    if (USE_AUDIO)
+        mediaTypes |= OWR_MEDIA_TYPE_AUDIO;
     if (USE_VIDEO)
         mediaTypes |= OWR_MEDIA_TYPE_VIDEO;
     owr_get_capture_sources(mediaTypes, got_sources, NULL);
@@ -404,7 +411,7 @@ static void got_sources(GList *sources, gpointer user_data)
         
         g_free(source_name);
         
-        if ((!USE_VIDEO || have_video) && have_audio)
+        if ((!USE_VIDEO || have_video) && (!USE_AUDIO || have_audio))
             break;
     }
 }
