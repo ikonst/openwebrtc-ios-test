@@ -21,7 +21,6 @@
 		3F75DE7D1A7C028400735B84 /* libgstaudioresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE5D1A7C028400735B84 /* libgstaudioresample.a */; };
 		3F75DE7E1A7C028400735B84 /* libgstaudiotestsrc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE5E1A7C028400735B84 /* libgstaudiotestsrc.a */; };
 		3F75DE7F1A7C028400735B84 /* libgstcoreelements.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE5F1A7C028400735B84 /* libgstcoreelements.a */; };
-		3F75DE801A7C028400735B84 /* libgstercolorspace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE601A7C028400735B84 /* libgstercolorspace.a */; };
 		3F75DE811A7C028400735B84 /* libgsterdtls.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE611A7C028400735B84 /* libgsterdtls.a */; };
 		3F75DE821A7C028400735B84 /* libgstinter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE621A7C028400735B84 /* libgstinter.a */; };
 		3F75DE831A7C028400735B84 /* libgstmulaw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE631A7C028400735B84 /* libgstmulaw.a */; };
@@ -125,7 +124,6 @@
 		3F75DE5D1A7C028400735B84 /* libgstaudioresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstaudioresample.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstaudioresample.a"; sourceTree = "<group>"; };
 		3F75DE5E1A7C028400735B84 /* libgstaudiotestsrc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstaudiotestsrc.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstaudiotestsrc.a"; sourceTree = "<group>"; };
 		3F75DE5F1A7C028400735B84 /* libgstcoreelements.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstcoreelements.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstcoreelements.a"; sourceTree = "<group>"; };
-		3F75DE601A7C028400735B84 /* libgstercolorspace.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstercolorspace.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstercolorspace.a"; sourceTree = "<group>"; };
 		3F75DE611A7C028400735B84 /* libgsterdtls.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgsterdtls.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgsterdtls.a"; sourceTree = "<group>"; };
 		3F75DE621A7C028400735B84 /* libgstinter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstinter.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstinter.a"; sourceTree = "<group>"; };
 		3F75DE631A7C028400735B84 /* libgstmulaw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstmulaw.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstmulaw.a"; sourceTree = "<group>"; };
@@ -945,7 +943,6 @@
 				3F75DEE61A7C38E900735B84 /* libgstfft-1.0.a in Frameworks */,
 				3F75DEF01A7C38E900735B84 /* libgstvideo-1.0.a in Frameworks */,
 				3F75DE7D1A7C028400735B84 /* libgstaudioresample.a in Frameworks */,
-				3F75DE801A7C028400735B84 /* libgstercolorspace.a in Frameworks */,
 				3F75DEE51A7C38E900735B84 /* libgstcontroller-1.0.a in Frameworks */,
 				3F75DED91A7C38E900735B84 /* libgirepository-internals.a in Frameworks */,
 				3F75DE931A7C028400735B84 /* libgstvideorepair.a in Frameworks */,
@@ -1048,7 +1045,6 @@
 				3F75DE5E1A7C028400735B84 /* libgstaudiotestsrc.a */,
 				3F75DE5F1A7C028400735B84 /* libgstcoreelements.a */,
 				3F1A011C1ABDD36100A0030C /* libgstdtls.a */,
-				3F75DE601A7C028400735B84 /* libgstercolorspace.a */,
 				3F75DE611A7C028400735B84 /* libgsterdtls.a */,
 				3F75DE621A7C028400735B84 /* libgstinter.a */,
 				3F75DE631A7C028400735B84 /* libgstmulaw.a */,
