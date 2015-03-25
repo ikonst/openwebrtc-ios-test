@@ -121,7 +121,6 @@ OwrCodecType audio_codec_type;
     [theSession setActive:YES error:nil];
     
     // GStreamer debug settings
-    gst_debug_set_threshold_from_string("*:2", TRUE);
     gst_debug_set_color_mode(GST_DEBUG_COLOR_MODE_OFF); // colors and XCode console don't mix
     
     // Tip: It's possible to dump .dot files the the iOS container
