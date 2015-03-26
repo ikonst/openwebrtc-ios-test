@@ -89,6 +89,7 @@
 		3F75DEFD1A7C38E900735B84 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DED11A7C38E900735B84 /* libssl.a */; };
 		3F75DEFE1A7C38E900735B84 /* libvpx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DED21A7C38E900735B84 /* libvpx.a */; };
 		3F75DF001A7C406100735B84 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEFF1A7C406100735B84 /* libresolv.dylib */; };
+		3F8045CA1AC461C5001762DF /* OpenWebRTCVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8045C91AC461C5001762DF /* OpenWebRTCVideoView.m */; };
 		F8E98D7619F264B20009F66F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E98D7419F264B20009F66F /* Main.storyboard */; };
 		F8E98D7819F264B20009F66F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8E98D7719F264B20009F66F /* Images.xcassets */; };
 		F8E98D7B19F264B20009F66F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8E98D7919F264B20009F66F /* LaunchScreen.xib */; };
@@ -119,7 +120,7 @@
 		3F75DE581A7C028400735B84 /* libgstalaw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstalaw.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstalaw.a"; sourceTree = "<group>"; };
 		3F75DE591A7C028400735B84 /* libgstapp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstapp.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstapp.a"; sourceTree = "<group>"; };
 		3F75DE5A1A7C028400735B84 /* libgstapplemedia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstapplemedia.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstapplemedia.a"; sourceTree = "<group>"; };
-		3F75DE5B1A7C028400735B84 /* libgstaudioconvert.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstaudioconvert.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstaudioconvert.a"; sourceTree = "<group>"; };
+		3F75DE5B1A7C028400735B84 /* libgstaudioconvert.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstaudioconvert.a; path = "../../cerbero/dist/ios_armv7/lib/gstreamer-1.0/libgstaudioconvert.a"; sourceTree = "<group>"; };
 		3F75DE5C1A7C028400735B84 /* libgstaudiorate.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstaudiorate.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstaudiorate.a"; sourceTree = "<group>"; };
 		3F75DE5D1A7C028400735B84 /* libgstaudioresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstaudioresample.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstaudioresample.a"; sourceTree = "<group>"; };
 		3F75DE5E1A7C028400735B84 /* libgstaudiotestsrc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstaudiotestsrc.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstaudiotestsrc.a"; sourceTree = "<group>"; };
@@ -192,6 +193,8 @@
 		3F75DED11A7C38E900735B84 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../../cerbero/dist/ios_arm64/lib/static/libssl.a; sourceTree = SOURCE_ROOT; };
 		3F75DED21A7C38E900735B84 /* libvpx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvpx.a; path = ../../cerbero/dist/ios_arm64/lib/static/libvpx.a; sourceTree = SOURCE_ROOT; };
 		3F75DEFF1A7C406100735B84 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libresolv.dylib; sourceTree = DEVELOPER_DIR; };
+		3F8045C81AC461C5001762DF /* OpenWebRTCVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenWebRTCVideoView.h; sourceTree = "<group>"; };
+		3F8045C91AC461C5001762DF /* OpenWebRTCVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenWebRTCVideoView.m; sourceTree = "<group>"; };
 		3FC7DCDF1A7BEA5A00EF5ED8 /* bzlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bzlib.h; sourceTree = "<group>"; };
 		3FC7DCE01A7BEA5A00EF5ED8 /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = error.h; sourceTree = "<group>"; };
 		3FC7DCE31A7BEA5B00EF5ED8 /* gdesktopappinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gdesktopappinfo.h; sourceTree = "<group>"; };
@@ -2246,6 +2249,8 @@
 		F8E98D6D19F264B20009F66F /* TestSendReceive */ = {
 			isa = PBXGroup;
 			children = (
+				3F8045C81AC461C5001762DF /* OpenWebRTCVideoView.h */,
+				3F8045C91AC461C5001762DF /* OpenWebRTCVideoView.m */,
 				3F2342551A9D4BCE00171D2B /* AppDelegate.h */,
 				3F2342561A9D4BCE00171D2B /* AppDelegate.m */,
 				F8E98D7419F264B20009F66F /* Main.storyboard */,
@@ -2364,6 +2369,7 @@
 				F8E993CC19F42A3A0009F66F /* TestViewController.m in Sources */,
 				3F23428B1A9D539300171D2B /* main.m in Sources */,
 				3F2342571A9D4BCE00171D2B /* AppDelegate.m in Sources */,
+				3F8045CA1AC461C5001762DF /* OpenWebRTCVideoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
