@@ -34,7 +34,7 @@
 @implementation TestViewController
 
 // Whether to render the local view (before sending)
-#define RENDER_SELF_VIEW
+#undef RENDER_SELF_VIEW
 
 // Define to use the OPUS codec (48000kHz)
 // Undefine to use aLaw PCM (8000kHz), e.g. to test CPU load without OPUS encoding/decoding overhead
@@ -46,7 +46,7 @@
 // Define this to perform the normal send-receive loopback over TCP
 // Undefine to test "self-view" performance and related bugs without dealing
 // with the transport pipeline and codecs bugs / performance.
-// #define TEST_LOOPBACK
+#define TEST_LOOPBACK
 
 // Renders either self-view video or loopback (encoded and decoded) video.
 OwrVideoRenderer *video_renderer = NULL;
@@ -171,10 +171,10 @@ OwrCodecType audio_codec_type;
     self.playButton.enabled = FALSE;
     self.playButton.enabled = FALSE;
 
-#ifdef REGULAR_OWR_WORKFLOW
-    [self owrSetup];
-#else
+#ifdef GSTREAMER_TEST_CODE
     gst_backend = [[GStreamerBackend alloc] init:self videoView:self.owrView];
+#else
+    [self owrSetup];
 #endif
 }
 
