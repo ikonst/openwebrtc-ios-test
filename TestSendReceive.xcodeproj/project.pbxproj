@@ -7,11 +7,89 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1A011B1ABDD28E00A0030C /* libgstsctp-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1A011A1ABDD28E00A0030C /* libgstsctp-1.0.a */; };
+		3F1A011D1ABDD36100A0030C /* libgstdtls.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1A011C1ABDD36100A0030C /* libgstdtls.a */; };
+		3F1A011F1ABDD36C00A0030C /* libgstsctp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1A011E1ABDD36C00A0030C /* libgstsctp.a */; };
+		3F1A01211ABDD65000A0030C /* libusrsctp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1A01201ABDD65000A0030C /* libusrsctp.a */; };
 		3F2342571A9D4BCE00171D2B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2342561A9D4BCE00171D2B /* AppDelegate.m */; };
 		3F23428B1A9D539300171D2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F23428A1A9D539300171D2B /* main.m */; };
+		3F75DE781A7C028400735B84 /* libgstalaw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE581A7C028400735B84 /* libgstalaw.a */; };
+		3F75DE791A7C028400735B84 /* libgstapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE591A7C028400735B84 /* libgstapp.a */; };
+		3F75DE7A1A7C028400735B84 /* libgstapplemedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE5A1A7C028400735B84 /* libgstapplemedia.a */; };
+		3F75DE7B1A7C028400735B84 /* libgstaudioconvert.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE5B1A7C028400735B84 /* libgstaudioconvert.a */; };
+		3F75DE7C1A7C028400735B84 /* libgstaudiorate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE5C1A7C028400735B84 /* libgstaudiorate.a */; };
+		3F75DE7D1A7C028400735B84 /* libgstaudioresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE5D1A7C028400735B84 /* libgstaudioresample.a */; };
+		3F75DE7E1A7C028400735B84 /* libgstaudiotestsrc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE5E1A7C028400735B84 /* libgstaudiotestsrc.a */; };
+		3F75DE7F1A7C028400735B84 /* libgstcoreelements.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE5F1A7C028400735B84 /* libgstcoreelements.a */; };
+		3F75DE811A7C028400735B84 /* libgsterdtls.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE611A7C028400735B84 /* libgsterdtls.a */; };
+		3F75DE821A7C028400735B84 /* libgstinter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE621A7C028400735B84 /* libgstinter.a */; };
+		3F75DE831A7C028400735B84 /* libgstmulaw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE631A7C028400735B84 /* libgstmulaw.a */; };
+		3F75DE841A7C028400735B84 /* libgstnice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE641A7C028400735B84 /* libgstnice.a */; };
+		3F75DE851A7C028400735B84 /* libgstopengl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE651A7C028400735B84 /* libgstopengl.a */; };
+		3F75DE861A7C028400735B84 /* libgstopenh264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE661A7C028400735B84 /* libgstopenh264.a */; };
+		3F75DE871A7C028400735B84 /* libgstopus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE671A7C028400735B84 /* libgstopus.a */; };
+		3F75DE881A7C028400735B84 /* libgstosxaudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE681A7C028400735B84 /* libgstosxaudio.a */; };
+		3F75DE891A7C028400735B84 /* libgstrtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE691A7C028400735B84 /* libgstrtp.a */; };
+		3F75DE8A1A7C028400735B84 /* libgstrtpmanager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE6A1A7C028400735B84 /* libgstrtpmanager.a */; };
+		3F75DE8B1A7C028400735B84 /* libgstsrtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE6B1A7C028400735B84 /* libgstsrtp.a */; };
+		3F75DE8C1A7C028400735B84 /* libgsttypefindfunctions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE6C1A7C028400735B84 /* libgsttypefindfunctions.a */; };
+		3F75DE8D1A7C028400735B84 /* libgstudp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE6D1A7C028400735B84 /* libgstudp.a */; };
+		3F75DE8E1A7C028400735B84 /* libgstvideoconvert.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE6E1A7C028400735B84 /* libgstvideoconvert.a */; };
+		3F75DE8F1A7C028400735B84 /* libgstvideocrop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE6F1A7C028400735B84 /* libgstvideocrop.a */; };
+		3F75DE901A7C028400735B84 /* libgstvideofilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE701A7C028400735B84 /* libgstvideofilter.a */; };
+		3F75DE911A7C028400735B84 /* libgstvideoparsersbad.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE711A7C028400735B84 /* libgstvideoparsersbad.a */; };
+		3F75DE921A7C028400735B84 /* libgstvideorate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE721A7C028400735B84 /* libgstvideorate.a */; };
+		3F75DE931A7C028400735B84 /* libgstvideorepair.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE731A7C028400735B84 /* libgstvideorepair.a */; };
+		3F75DE941A7C028400735B84 /* libgstvideoscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE741A7C028400735B84 /* libgstvideoscale.a */; };
+		3F75DE951A7C028400735B84 /* libgstvideotestsrc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE751A7C028400735B84 /* libgstvideotestsrc.a */; };
+		3F75DE961A7C028400735B84 /* libgstvolume.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE761A7C028400735B84 /* libgstvolume.a */; };
+		3F75DE971A7C028400735B84 /* libgstvpx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DE771A7C028400735B84 /* libgstvpx.a */; };
+		3F75DED31A7C38E900735B84 /* libbz2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEA71A7C38E900735B84 /* libbz2.a */; };
+		3F75DED41A7C38E900735B84 /* libcharset.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEA81A7C38E900735B84 /* libcharset.a */; };
+		3F75DED51A7C38E900735B84 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEA91A7C38E900735B84 /* libcrypto.a */; };
+		3F75DED61A7C38E900735B84 /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEAA1A7C38E900735B84 /* libffi.a */; };
+		3F75DED71A7C38E900735B84 /* libgio-2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEAB1A7C38E900735B84 /* libgio-2.0.a */; };
+		3F75DED81A7C38E900735B84 /* libgirepository-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEAC1A7C38E900735B84 /* libgirepository-1.0.a */; };
+		3F75DED91A7C38E900735B84 /* libgirepository-internals.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEAD1A7C38E900735B84 /* libgirepository-internals.a */; };
+		3F75DEDA1A7C38E900735B84 /* libglib-2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEAE1A7C38E900735B84 /* libglib-2.0.a */; };
+		3F75DEDB1A7C38E900735B84 /* libgmodule-2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEAF1A7C38E900735B84 /* libgmodule-2.0.a */; };
+		3F75DEDC1A7C38E900735B84 /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEB01A7C38E900735B84 /* libgmp.a */; };
+		3F75DEDD1A7C38E900735B84 /* libgobject-2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEB11A7C38E900735B84 /* libgobject-2.0.a */; };
+		3F75DEDE1A7C38E900735B84 /* libgstallocators-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEB21A7C38E900735B84 /* libgstallocators-1.0.a */; };
+		3F75DEDF1A7C38E900735B84 /* libgstapp-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEB31A7C38E900735B84 /* libgstapp-1.0.a */; };
+		3F75DEE01A7C38E900735B84 /* libgstaudio-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEB41A7C38E900735B84 /* libgstaudio-1.0.a */; };
+		3F75DEE11A7C38E900735B84 /* libgstbadbase-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEB51A7C38E900735B84 /* libgstbadbase-1.0.a */; };
+		3F75DEE21A7C38E900735B84 /* libgstbadvideo-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEB61A7C38E900735B84 /* libgstbadvideo-1.0.a */; };
+		3F75DEE31A7C38E900735B84 /* libgstbase-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEB71A7C38E900735B84 /* libgstbase-1.0.a */; };
+		3F75DEE41A7C38E900735B84 /* libgstcodecparsers-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEB81A7C38E900735B84 /* libgstcodecparsers-1.0.a */; };
+		3F75DEE51A7C38E900735B84 /* libgstcontroller-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEB91A7C38E900735B84 /* libgstcontroller-1.0.a */; };
+		3F75DEE61A7C38E900735B84 /* libgstfft-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEBA1A7C38E900735B84 /* libgstfft-1.0.a */; };
+		3F75DEE71A7C38E900735B84 /* libgstgl-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEBB1A7C38E900735B84 /* libgstgl-1.0.a */; };
+		3F75DEE81A7C38E900735B84 /* libgstnet-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEBC1A7C38E900735B84 /* libgstnet-1.0.a */; };
+		3F75DEE91A7C38E900735B84 /* libgstpbutils-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEBD1A7C38E900735B84 /* libgstpbutils-1.0.a */; };
+		3F75DEEA1A7C38E900735B84 /* libgstreamer-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEBE1A7C38E900735B84 /* libgstreamer-1.0.a */; };
+		3F75DEEB1A7C38E900735B84 /* libgstriff-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEBF1A7C38E900735B84 /* libgstriff-1.0.a */; };
+		3F75DEEC1A7C38E900735B84 /* libgstrtp-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEC01A7C38E900735B84 /* libgstrtp-1.0.a */; };
+		3F75DEED1A7C38E900735B84 /* libgstrtsp-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEC11A7C38E900735B84 /* libgstrtsp-1.0.a */; };
+		3F75DEEE1A7C38E900735B84 /* libgstsdp-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEC21A7C38E900735B84 /* libgstsdp-1.0.a */; };
+		3F75DEEF1A7C38E900735B84 /* libgsttag-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEC31A7C38E900735B84 /* libgsttag-1.0.a */; };
+		3F75DEF01A7C38E900735B84 /* libgstvideo-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEC41A7C38E900735B84 /* libgstvideo-1.0.a */; };
+		3F75DEF11A7C38E900735B84 /* libgthread-2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEC51A7C38E900735B84 /* libgthread-2.0.a */; };
+		3F75DEF21A7C38E900735B84 /* libiconv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEC61A7C38E900735B84 /* libiconv.a */; };
+		3F75DEF31A7C38E900735B84 /* libintl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEC71A7C38E900735B84 /* libintl.a */; };
+		3F75DEF41A7C38E900735B84 /* libnice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEC81A7C38E900735B84 /* libnice.a */; };
+		3F75DEF51A7C38E900735B84 /* libopenh264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEC91A7C38E900735B84 /* libopenh264.a */; };
+		3F75DEF61A7C38E900735B84 /* libopenwebrtc_bridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DECA1A7C38E900735B84 /* libopenwebrtc_bridge.a */; };
+		3F75DEF71A7C38E900735B84 /* libopenwebrtc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DECB1A7C38E900735B84 /* libopenwebrtc.a */; };
+		3F75DEF81A7C38E900735B84 /* libopus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DECC1A7C38E900735B84 /* libopus.a */; };
+		3F75DEF91A7C38E900735B84 /* liborc-0.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DECD1A7C38E900735B84 /* liborc-0.4.a */; };
+		3F75DEFA1A7C38E900735B84 /* liborc-test-0.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DECE1A7C38E900735B84 /* liborc-test-0.4.a */; };
+		3F75DEFB1A7C38E900735B84 /* libseed-gtk3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DECF1A7C38E900735B84 /* libseed-gtk3.a */; };
+		3F75DEFC1A7C38E900735B84 /* libsrtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DED01A7C38E900735B84 /* libsrtp.a */; };
+		3F75DEFD1A7C38E900735B84 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DED11A7C38E900735B84 /* libssl.a */; };
+		3F75DEFE1A7C38E900735B84 /* libvpx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DED21A7C38E900735B84 /* libvpx.a */; };
 		3F75DF001A7C406100735B84 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEFF1A7C406100735B84 /* libresolv.dylib */; };
 		3F8045CA1AC461C5001762DF /* OpenWebRTCVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8045C91AC461C5001762DF /* OpenWebRTCVideoView.m */; };
-		3F8048131AC4AB4E001762DF /* OpenWebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8048121AC4AB4E001762DF /* OpenWebRTC.framework */; };
 		3F8048181AC4E67B001762DF /* GStreamerBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8048171AC4E67B001762DF /* GStreamerBackend.m */; };
 		3F80481C1AC4E915001762DF /* gst_ios_init.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F80481B1AC4E915001762DF /* gst_ios_init.m */; };
 		F8E98D7619F264B20009F66F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E98D7419F264B20009F66F /* Main.storyboard */; };
@@ -34,13 +112,91 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F1A011A1ABDD28E00A0030C /* libgstsctp-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstsctp-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstsctp-1.0.a"; sourceTree = "<group>"; };
+		3F1A011C1ABDD36100A0030C /* libgstdtls.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstdtls.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstdtls.a"; sourceTree = "<group>"; };
+		3F1A011E1ABDD36C00A0030C /* libgstsctp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstsctp.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstsctp.a"; sourceTree = "<group>"; };
+		3F1A01201ABDD65000A0030C /* libusrsctp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libusrsctp.a; path = ../../cerbero/dist/ios_arm64/lib/static/libusrsctp.a; sourceTree = "<group>"; };
 		3F2342551A9D4BCE00171D2B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3F2342561A9D4BCE00171D2B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3F23428A1A9D539300171D2B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3F75DE581A7C028400735B84 /* libgstalaw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstalaw.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstalaw.a"; sourceTree = "<group>"; };
+		3F75DE591A7C028400735B84 /* libgstapp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstapp.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstapp.a"; sourceTree = "<group>"; };
+		3F75DE5A1A7C028400735B84 /* libgstapplemedia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstapplemedia.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstapplemedia.a"; sourceTree = "<group>"; };
+		3F75DE5B1A7C028400735B84 /* libgstaudioconvert.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstaudioconvert.a; path = "../../cerbero/dist/ios_armv7/lib/gstreamer-1.0/libgstaudioconvert.a"; sourceTree = "<group>"; };
+		3F75DE5C1A7C028400735B84 /* libgstaudiorate.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstaudiorate.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstaudiorate.a"; sourceTree = "<group>"; };
+		3F75DE5D1A7C028400735B84 /* libgstaudioresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstaudioresample.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstaudioresample.a"; sourceTree = "<group>"; };
+		3F75DE5E1A7C028400735B84 /* libgstaudiotestsrc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstaudiotestsrc.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstaudiotestsrc.a"; sourceTree = "<group>"; };
+		3F75DE5F1A7C028400735B84 /* libgstcoreelements.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstcoreelements.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstcoreelements.a"; sourceTree = "<group>"; };
+		3F75DE611A7C028400735B84 /* libgsterdtls.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgsterdtls.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgsterdtls.a"; sourceTree = "<group>"; };
+		3F75DE621A7C028400735B84 /* libgstinter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstinter.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstinter.a"; sourceTree = "<group>"; };
+		3F75DE631A7C028400735B84 /* libgstmulaw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstmulaw.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstmulaw.a"; sourceTree = "<group>"; };
+		3F75DE641A7C028400735B84 /* libgstnice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstnice.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstnice.a"; sourceTree = "<group>"; };
+		3F75DE651A7C028400735B84 /* libgstopengl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstopengl.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstopengl.a"; sourceTree = "<group>"; };
+		3F75DE661A7C028400735B84 /* libgstopenh264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstopenh264.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstopenh264.a"; sourceTree = "<group>"; };
+		3F75DE671A7C028400735B84 /* libgstopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstopus.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstopus.a"; sourceTree = "<group>"; };
+		3F75DE681A7C028400735B84 /* libgstosxaudio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstosxaudio.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstosxaudio.a"; sourceTree = "<group>"; };
+		3F75DE691A7C028400735B84 /* libgstrtp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstrtp.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstrtp.a"; sourceTree = "<group>"; };
+		3F75DE6A1A7C028400735B84 /* libgstrtpmanager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstrtpmanager.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstrtpmanager.a"; sourceTree = "<group>"; };
+		3F75DE6B1A7C028400735B84 /* libgstsrtp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstsrtp.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstsrtp.a"; sourceTree = "<group>"; };
+		3F75DE6C1A7C028400735B84 /* libgsttypefindfunctions.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgsttypefindfunctions.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgsttypefindfunctions.a"; sourceTree = "<group>"; };
+		3F75DE6D1A7C028400735B84 /* libgstudp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstudp.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstudp.a"; sourceTree = "<group>"; };
+		3F75DE6E1A7C028400735B84 /* libgstvideoconvert.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstvideoconvert.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstvideoconvert.a"; sourceTree = "<group>"; };
+		3F75DE6F1A7C028400735B84 /* libgstvideocrop.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstvideocrop.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstvideocrop.a"; sourceTree = "<group>"; };
+		3F75DE701A7C028400735B84 /* libgstvideofilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstvideofilter.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstvideofilter.a"; sourceTree = "<group>"; };
+		3F75DE711A7C028400735B84 /* libgstvideoparsersbad.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstvideoparsersbad.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstvideoparsersbad.a"; sourceTree = "<group>"; };
+		3F75DE721A7C028400735B84 /* libgstvideorate.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstvideorate.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstvideorate.a"; sourceTree = "<group>"; };
+		3F75DE731A7C028400735B84 /* libgstvideorepair.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstvideorepair.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstvideorepair.a"; sourceTree = "<group>"; };
+		3F75DE741A7C028400735B84 /* libgstvideoscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstvideoscale.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstvideoscale.a"; sourceTree = "<group>"; };
+		3F75DE751A7C028400735B84 /* libgstvideotestsrc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstvideotestsrc.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstvideotestsrc.a"; sourceTree = "<group>"; };
+		3F75DE761A7C028400735B84 /* libgstvolume.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstvolume.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstvolume.a"; sourceTree = "<group>"; };
+		3F75DE771A7C028400735B84 /* libgstvpx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgstvpx.a; path = "../../cerbero/dist/ios_arm64/lib/gstreamer-1.0/static/libgstvpx.a"; sourceTree = "<group>"; };
+		3F75DEA71A7C38E900735B84 /* libbz2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbz2.a; path = ../../cerbero/dist/ios_arm64/lib/static/libbz2.a; sourceTree = SOURCE_ROOT; };
+		3F75DEA81A7C38E900735B84 /* libcharset.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcharset.a; path = ../../cerbero/dist/ios_arm64/lib/static/libcharset.a; sourceTree = SOURCE_ROOT; };
+		3F75DEA91A7C38E900735B84 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../../cerbero/dist/ios_arm64/lib/static/libcrypto.a; sourceTree = SOURCE_ROOT; };
+		3F75DEAA1A7C38E900735B84 /* libffi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libffi.a; path = ../../cerbero/dist/ios_arm64/lib/static/libffi.a; sourceTree = SOURCE_ROOT; };
+		3F75DEAB1A7C38E900735B84 /* libgio-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgio-2.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgio-2.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEAC1A7C38E900735B84 /* libgirepository-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgirepository-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgirepository-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEAD1A7C38E900735B84 /* libgirepository-internals.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgirepository-internals.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgirepository-internals.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEAE1A7C38E900735B84 /* libglib-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libglib-2.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libglib-2.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEAF1A7C38E900735B84 /* libgmodule-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgmodule-2.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgmodule-2.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB01A7C38E900735B84 /* libgmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmp.a; path = ../../cerbero/dist/ios_arm64/lib/static/libgmp.a; sourceTree = SOURCE_ROOT; };
+		3F75DEB11A7C38E900735B84 /* libgobject-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgobject-2.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgobject-2.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB21A7C38E900735B84 /* libgstallocators-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstallocators-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstallocators-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB31A7C38E900735B84 /* libgstapp-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstapp-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstapp-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB41A7C38E900735B84 /* libgstaudio-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstaudio-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstaudio-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB51A7C38E900735B84 /* libgstbadbase-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstbadbase-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstbadbase-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB61A7C38E900735B84 /* libgstbadvideo-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstbadvideo-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstbadvideo-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB71A7C38E900735B84 /* libgstbase-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstbase-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstbase-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB81A7C38E900735B84 /* libgstcodecparsers-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstcodecparsers-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstcodecparsers-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEB91A7C38E900735B84 /* libgstcontroller-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstcontroller-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstcontroller-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEBA1A7C38E900735B84 /* libgstfft-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstfft-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstfft-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEBB1A7C38E900735B84 /* libgstgl-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstgl-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstgl-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEBC1A7C38E900735B84 /* libgstnet-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstnet-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstnet-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEBD1A7C38E900735B84 /* libgstpbutils-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstpbutils-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstpbutils-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEBE1A7C38E900735B84 /* libgstreamer-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstreamer-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstreamer-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEBF1A7C38E900735B84 /* libgstriff-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstriff-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstriff-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEC01A7C38E900735B84 /* libgstrtp-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstrtp-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstrtp-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEC11A7C38E900735B84 /* libgstrtsp-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstrtsp-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstrtsp-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEC21A7C38E900735B84 /* libgstsdp-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstsdp-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstsdp-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEC31A7C38E900735B84 /* libgsttag-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgsttag-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgsttag-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEC41A7C38E900735B84 /* libgstvideo-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgstvideo-1.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgstvideo-1.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEC51A7C38E900735B84 /* libgthread-2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgthread-2.0.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libgthread-2.0.a"; sourceTree = SOURCE_ROOT; };
+		3F75DEC61A7C38E900735B84 /* libiconv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiconv.a; path = ../../cerbero/dist/ios_arm64/lib/static/libiconv.a; sourceTree = SOURCE_ROOT; };
+		3F75DEC71A7C38E900735B84 /* libintl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libintl.a; path = ../../cerbero/dist/ios_arm64/lib/static/libintl.a; sourceTree = SOURCE_ROOT; };
+		3F75DEC81A7C38E900735B84 /* libnice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnice.a; path = ../../cerbero/dist/ios_arm64/lib/static/libnice.a; sourceTree = SOURCE_ROOT; };
+		3F75DEC91A7C38E900735B84 /* libopenh264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopenh264.a; path = ../../cerbero/dist/ios_arm64/lib/static/libopenh264.a; sourceTree = SOURCE_ROOT; };
+		3F75DECA1A7C38E900735B84 /* libopenwebrtc_bridge.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopenwebrtc_bridge.a; path = ../../cerbero/dist/ios_arm64/lib/static/libopenwebrtc_bridge.a; sourceTree = SOURCE_ROOT; };
+		3F75DECB1A7C38E900735B84 /* libopenwebrtc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopenwebrtc.a; path = ../../cerbero/dist/ios_arm64/lib/static/libopenwebrtc.a; sourceTree = SOURCE_ROOT; };
+		3F75DECC1A7C38E900735B84 /* libopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopus.a; path = ../../cerbero/dist/ios_arm64/lib/static/libopus.a; sourceTree = SOURCE_ROOT; };
+		3F75DECD1A7C38E900735B84 /* liborc-0.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liborc-0.4.a"; path = "../../cerbero/dist/ios_arm64/lib/static/liborc-0.4.a"; sourceTree = SOURCE_ROOT; };
+		3F75DECE1A7C38E900735B84 /* liborc-test-0.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liborc-test-0.4.a"; path = "../../cerbero/dist/ios_arm64/lib/static/liborc-test-0.4.a"; sourceTree = SOURCE_ROOT; };
+		3F75DECF1A7C38E900735B84 /* libseed-gtk3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libseed-gtk3.a"; path = "../../cerbero/dist/ios_arm64/lib/static/libseed-gtk3.a"; sourceTree = SOURCE_ROOT; };
+		3F75DED01A7C38E900735B84 /* libsrtp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsrtp.a; path = ../../cerbero/dist/ios_arm64/lib/static/libsrtp.a; sourceTree = SOURCE_ROOT; };
+		3F75DED11A7C38E900735B84 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../../cerbero/dist/ios_arm64/lib/static/libssl.a; sourceTree = SOURCE_ROOT; };
+		3F75DED21A7C38E900735B84 /* libvpx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvpx.a; path = ../../cerbero/dist/ios_arm64/lib/static/libvpx.a; sourceTree = SOURCE_ROOT; };
 		3F75DEFF1A7C406100735B84 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libresolv.dylib; sourceTree = DEVELOPER_DIR; };
 		3F8045C81AC461C5001762DF /* OpenWebRTCVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenWebRTCVideoView.h; sourceTree = "<group>"; };
 		3F8045C91AC461C5001762DF /* OpenWebRTCVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenWebRTCVideoView.m; sourceTree = "<group>"; };
-		3F8048121AC4AB4E001762DF /* OpenWebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenWebRTC.framework; path = ../../../../Volumes/Mac/OpenWebRTC_framework_0.1/OpenWebRTC.framework; sourceTree = "<group>"; };
 		3F8048161AC4E67B001762DF /* GStreamerBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GStreamerBackend.h; sourceTree = "<group>"; };
 		3F8048171AC4E67B001762DF /* GStreamerBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GStreamerBackend.m; sourceTree = "<group>"; };
 		3F8048191AC4E76F001762DF /* GStreamerBackendDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GStreamerBackendDelegate.h; sourceTree = "<group>"; };
@@ -788,27 +944,199 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F8048131AC4AB4E001762DF /* OpenWebRTC.framework in Frameworks */,
+				3F75DEDA1A7C38E900735B84 /* libglib-2.0.a in Frameworks */,
+				3F75DE811A7C028400735B84 /* libgsterdtls.a in Frameworks */,
 				F8E999F619F4FDA50009F66F /* GLKit.framework in Frameworks */,
 				F8E993D619F4DE0B0009F66F /* CoreMedia.framework in Frameworks */,
 				F8E993D419F4DDDB0009F66F /* libz.dylib in Frameworks */,
+				3F75DE8A1A7C028400735B84 /* libgstrtpmanager.a in Frameworks */,
+				3F75DEE61A7C38E900735B84 /* libgstfft-1.0.a in Frameworks */,
+				3F75DEF01A7C38E900735B84 /* libgstvideo-1.0.a in Frameworks */,
+				3F75DE7D1A7C028400735B84 /* libgstaudioresample.a in Frameworks */,
+				3F75DEE51A7C38E900735B84 /* libgstcontroller-1.0.a in Frameworks */,
+				3F75DED91A7C38E900735B84 /* libgirepository-internals.a in Frameworks */,
+				3F75DE931A7C028400735B84 /* libgstvideorepair.a in Frameworks */,
+				3F75DEF81A7C38E900735B84 /* libopus.a in Frameworks */,
+				3F75DEF11A7C38E900735B84 /* libgthread-2.0.a in Frameworks */,
+				3F75DE861A7C028400735B84 /* libgstopenh264.a in Frameworks */,
+				3F75DEFA1A7C38E900735B84 /* liborc-test-0.4.a in Frameworks */,
+				3F75DEEA1A7C38E900735B84 /* libgstreamer-1.0.a in Frameworks */,
+				3F75DE941A7C028400735B84 /* libgstvideoscale.a in Frameworks */,
+				3F1A011F1ABDD36C00A0030C /* libgstsctp.a in Frameworks */,
+				3F1A011D1ABDD36100A0030C /* libgstdtls.a in Frameworks */,
+				3F75DE8F1A7C028400735B84 /* libgstvideocrop.a in Frameworks */,
+				3F75DE831A7C028400735B84 /* libgstmulaw.a in Frameworks */,
+				3F75DE871A7C028400735B84 /* libgstopus.a in Frameworks */,
+				3F75DE961A7C028400735B84 /* libgstvolume.a in Frameworks */,
+				3F75DE8E1A7C028400735B84 /* libgstvideoconvert.a in Frameworks */,
+				3F75DED51A7C38E900735B84 /* libcrypto.a in Frameworks */,
+				3F75DED41A7C38E900735B84 /* libcharset.a in Frameworks */,
+				3F75DED31A7C38E900735B84 /* libbz2.a in Frameworks */,
+				3F1A011B1ABDD28E00A0030C /* libgstsctp-1.0.a in Frameworks */,
+				3F75DE8D1A7C028400735B84 /* libgstudp.a in Frameworks */,
+				3F75DEF21A7C38E900735B84 /* libiconv.a in Frameworks */,
+				3F75DE911A7C028400735B84 /* libgstvideoparsersbad.a in Frameworks */,
+				3F75DE8B1A7C028400735B84 /* libgstsrtp.a in Frameworks */,
 				F8E993CE19F4DDB30009F66F /* libc++.dylib in Frameworks */,
+				3F75DE891A7C028400735B84 /* libgstrtp.a in Frameworks */,
+				3F75DE971A7C028400735B84 /* libgstvpx.a in Frameworks */,
+				3F75DEF91A7C38E900735B84 /* liborc-0.4.a in Frameworks */,
 				F8E98D9B19F2C0200009F66F /* AssetsLibrary.framework in Frameworks */,
+				3F75DE901A7C028400735B84 /* libgstvideofilter.a in Frameworks */,
 				F8E98D9C19F2C0200009F66F /* AudioToolbox.framework in Frameworks */,
+				3F75DEFC1A7C38E900735B84 /* libsrtp.a in Frameworks */,
+				3F75DEFB1A7C38E900735B84 /* libseed-gtk3.a in Frameworks */,
+				3F75DE7B1A7C028400735B84 /* libgstaudioconvert.a in Frameworks */,
 				3F75DF001A7C406100735B84 /* libresolv.dylib in Frameworks */,
+				3F75DED71A7C38E900735B84 /* libgio-2.0.a in Frameworks */,
+				3F75DE781A7C028400735B84 /* libgstalaw.a in Frameworks */,
+				3F75DEEE1A7C38E900735B84 /* libgstsdp-1.0.a in Frameworks */,
 				F8E98D9D19F2C0200009F66F /* AVFoundation.framework in Frameworks */,
 				F8E98D9E19F2C0200009F66F /* CoreAudio.framework in Frameworks */,
+				3F75DEDF1A7C38E900735B84 /* libgstapp-1.0.a in Frameworks */,
+				3F75DEEB1A7C38E900735B84 /* libgstriff-1.0.a in Frameworks */,
+				3F75DEEF1A7C38E900735B84 /* libgsttag-1.0.a in Frameworks */,
 				F8E98D9F19F2C0200009F66F /* CoreGraphics.framework in Frameworks */,
+				3F75DE951A7C028400735B84 /* libgstvideotestsrc.a in Frameworks */,
+				3F75DEF41A7C38E900735B84 /* libnice.a in Frameworks */,
+				3F75DE7E1A7C028400735B84 /* libgstaudiotestsrc.a in Frameworks */,
+				3F75DE921A7C028400735B84 /* libgstvideorate.a in Frameworks */,
+				3F75DEE71A7C38E900735B84 /* libgstgl-1.0.a in Frameworks */,
+				3F75DE8C1A7C028400735B84 /* libgsttypefindfunctions.a in Frameworks */,
+				3F75DEF51A7C38E900735B84 /* libopenh264.a in Frameworks */,
+				3F75DEE11A7C38E900735B84 /* libgstbadbase-1.0.a in Frameworks */,
+				3F75DEFD1A7C38E900735B84 /* libssl.a in Frameworks */,
+				3F75DE7C1A7C028400735B84 /* libgstaudiorate.a in Frameworks */,
 				F8E98DA019F2C0200009F66F /* CoreVideo.framework in Frameworks */,
+				3F75DEDE1A7C38E900735B84 /* libgstallocators-1.0.a in Frameworks */,
+				3F75DEDC1A7C38E900735B84 /* libgmp.a in Frameworks */,
+				3F75DEF31A7C38E900735B84 /* libintl.a in Frameworks */,
+				3F75DEE41A7C38E900735B84 /* libgstcodecparsers-1.0.a in Frameworks */,
+				3F75DED61A7C38E900735B84 /* libffi.a in Frameworks */,
+				3F75DE821A7C028400735B84 /* libgstinter.a in Frameworks */,
+				3F75DEF71A7C38E900735B84 /* libopenwebrtc.a in Frameworks */,
+				3F75DEE31A7C38E900735B84 /* libgstbase-1.0.a in Frameworks */,
+				3F75DEE01A7C38E900735B84 /* libgstaudio-1.0.a in Frameworks */,
+				3F75DE7A1A7C028400735B84 /* libgstapplemedia.a in Frameworks */,
+				3F75DED81A7C38E900735B84 /* libgirepository-1.0.a in Frameworks */,
+				3F75DE791A7C028400735B84 /* libgstapp.a in Frameworks */,
+				3F75DEED1A7C38E900735B84 /* libgstrtsp-1.0.a in Frameworks */,
 				F8E98DA219F2C0200009F66F /* OpenGLES.framework in Frameworks */,
+				3F75DEDB1A7C38E900735B84 /* libgmodule-2.0.a in Frameworks */,
+				3F75DEEC1A7C38E900735B84 /* libgstrtp-1.0.a in Frameworks */,
+				3F75DEF61A7C38E900735B84 /* libopenwebrtc_bridge.a in Frameworks */,
+				3F1A01211ABDD65000A0030C /* libusrsctp.a in Frameworks */,
+				3F75DEE91A7C38E900735B84 /* libgstpbutils-1.0.a in Frameworks */,
+				3F75DE851A7C028400735B84 /* libgstopengl.a in Frameworks */,
+				3F75DE7F1A7C028400735B84 /* libgstcoreelements.a in Frameworks */,
+				3F75DEDD1A7C38E900735B84 /* libgobject-2.0.a in Frameworks */,
 				F8E98DA319F2C0200009F66F /* QuartzCore.framework in Frameworks */,
+				3F75DEE21A7C38E900735B84 /* libgstbadvideo-1.0.a in Frameworks */,
+				3F75DE881A7C028400735B84 /* libgstosxaudio.a in Frameworks */,
 				F8E98DA419F2C0200009F66F /* VideoToolbox.framework in Frameworks */,
+				3F75DEE81A7C38E900735B84 /* libgstnet-1.0.a in Frameworks */,
+				3F75DEFE1A7C38E900735B84 /* libvpx.a in Frameworks */,
+				3F75DE841A7C028400735B84 /* libgstnice.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F75DE171A7C00A400735B84 /* GStreamer */ = {
+			isa = PBXGroup;
+			children = (
+				3F75DE581A7C028400735B84 /* libgstalaw.a */,
+				3F75DE591A7C028400735B84 /* libgstapp.a */,
+				3F75DE5A1A7C028400735B84 /* libgstapplemedia.a */,
+				3F75DE5B1A7C028400735B84 /* libgstaudioconvert.a */,
+				3F75DE5C1A7C028400735B84 /* libgstaudiorate.a */,
+				3F75DE5D1A7C028400735B84 /* libgstaudioresample.a */,
+				3F75DE5E1A7C028400735B84 /* libgstaudiotestsrc.a */,
+				3F75DE5F1A7C028400735B84 /* libgstcoreelements.a */,
+				3F1A011C1ABDD36100A0030C /* libgstdtls.a */,
+				3F75DE611A7C028400735B84 /* libgsterdtls.a */,
+				3F75DE621A7C028400735B84 /* libgstinter.a */,
+				3F75DE631A7C028400735B84 /* libgstmulaw.a */,
+				3F75DE641A7C028400735B84 /* libgstnice.a */,
+				3F75DE651A7C028400735B84 /* libgstopengl.a */,
+				3F75DE661A7C028400735B84 /* libgstopenh264.a */,
+				3F75DE671A7C028400735B84 /* libgstopus.a */,
+				3F75DE681A7C028400735B84 /* libgstosxaudio.a */,
+				3F75DE691A7C028400735B84 /* libgstrtp.a */,
+				3F75DE6A1A7C028400735B84 /* libgstrtpmanager.a */,
+				3F1A011E1ABDD36C00A0030C /* libgstsctp.a */,
+				3F75DE6B1A7C028400735B84 /* libgstsrtp.a */,
+				3F75DE6C1A7C028400735B84 /* libgsttypefindfunctions.a */,
+				3F75DE6D1A7C028400735B84 /* libgstudp.a */,
+				3F75DE6E1A7C028400735B84 /* libgstvideoconvert.a */,
+				3F75DE6F1A7C028400735B84 /* libgstvideocrop.a */,
+				3F75DE701A7C028400735B84 /* libgstvideofilter.a */,
+				3F75DE711A7C028400735B84 /* libgstvideoparsersbad.a */,
+				3F75DE721A7C028400735B84 /* libgstvideorate.a */,
+				3F75DE731A7C028400735B84 /* libgstvideorepair.a */,
+				3F75DE741A7C028400735B84 /* libgstvideoscale.a */,
+				3F75DE751A7C028400735B84 /* libgstvideotestsrc.a */,
+				3F75DE761A7C028400735B84 /* libgstvolume.a */,
+				3F75DE771A7C028400735B84 /* libgstvpx.a */,
+			);
+			name = GStreamer;
+			sourceTree = "<group>";
+		};
+		3F75DEA61A7C38DC00735B84 /* OpenWebRTC */ = {
+			isa = PBXGroup;
+			children = (
+				3F75DE171A7C00A400735B84 /* GStreamer */,
+				3F75DEA71A7C38E900735B84 /* libbz2.a */,
+				3F75DEA81A7C38E900735B84 /* libcharset.a */,
+				3F75DEA91A7C38E900735B84 /* libcrypto.a */,
+				3F75DEAA1A7C38E900735B84 /* libffi.a */,
+				3F75DEAB1A7C38E900735B84 /* libgio-2.0.a */,
+				3F75DEAC1A7C38E900735B84 /* libgirepository-1.0.a */,
+				3F75DEAD1A7C38E900735B84 /* libgirepository-internals.a */,
+				3F75DEAE1A7C38E900735B84 /* libglib-2.0.a */,
+				3F75DEAF1A7C38E900735B84 /* libgmodule-2.0.a */,
+				3F75DEB01A7C38E900735B84 /* libgmp.a */,
+				3F75DEB11A7C38E900735B84 /* libgobject-2.0.a */,
+				3F75DEB21A7C38E900735B84 /* libgstallocators-1.0.a */,
+				3F75DEB31A7C38E900735B84 /* libgstapp-1.0.a */,
+				3F75DEB41A7C38E900735B84 /* libgstaudio-1.0.a */,
+				3F75DEB51A7C38E900735B84 /* libgstbadbase-1.0.a */,
+				3F75DEB61A7C38E900735B84 /* libgstbadvideo-1.0.a */,
+				3F75DEB71A7C38E900735B84 /* libgstbase-1.0.a */,
+				3F75DEB81A7C38E900735B84 /* libgstcodecparsers-1.0.a */,
+				3F75DEB91A7C38E900735B84 /* libgstcontroller-1.0.a */,
+				3F75DEBA1A7C38E900735B84 /* libgstfft-1.0.a */,
+				3F75DEBB1A7C38E900735B84 /* libgstgl-1.0.a */,
+				3F75DEBC1A7C38E900735B84 /* libgstnet-1.0.a */,
+				3F75DEBD1A7C38E900735B84 /* libgstpbutils-1.0.a */,
+				3F75DEBE1A7C38E900735B84 /* libgstreamer-1.0.a */,
+				3F75DEBF1A7C38E900735B84 /* libgstriff-1.0.a */,
+				3F75DEC01A7C38E900735B84 /* libgstrtp-1.0.a */,
+				3F75DEC11A7C38E900735B84 /* libgstrtsp-1.0.a */,
+				3F1A011A1ABDD28E00A0030C /* libgstsctp-1.0.a */,
+				3F75DEC21A7C38E900735B84 /* libgstsdp-1.0.a */,
+				3F75DEC31A7C38E900735B84 /* libgsttag-1.0.a */,
+				3F75DEC41A7C38E900735B84 /* libgstvideo-1.0.a */,
+				3F75DEC51A7C38E900735B84 /* libgthread-2.0.a */,
+				3F75DEC61A7C38E900735B84 /* libiconv.a */,
+				3F75DEC71A7C38E900735B84 /* libintl.a */,
+				3F75DEC81A7C38E900735B84 /* libnice.a */,
+				3F75DEC91A7C38E900735B84 /* libopenh264.a */,
+				3F75DECA1A7C38E900735B84 /* libopenwebrtc_bridge.a */,
+				3F75DECB1A7C38E900735B84 /* libopenwebrtc.a */,
+				3F75DECC1A7C38E900735B84 /* libopus.a */,
+				3F75DECD1A7C38E900735B84 /* liborc-0.4.a */,
+				3F75DECE1A7C38E900735B84 /* liborc-test-0.4.a */,
+				3F75DECF1A7C38E900735B84 /* libseed-gtk3.a */,
+				3F75DED01A7C38E900735B84 /* libsrtp.a */,
+				3F75DED11A7C38E900735B84 /* libssl.a */,
+				3F1A01201ABDD65000A0030C /* libusrsctp.a */,
+				3F75DED21A7C38E900735B84 /* libvpx.a */,
+			);
+			name = OpenWebRTC;
+			sourceTree = "<group>";
+		};
 		3FC7DCDE1A7BEA5A00EF5ED8 /* include */ = {
 			isa = PBXGroup;
 			children = (
@@ -1959,8 +2287,8 @@
 		F8E98D9019F2ADFD0009F66F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3F8048121AC4AB4E001762DF /* OpenWebRTC.framework */,
 				3FC7DCDE1A7BEA5A00EF5ED8 /* include */,
+				3F75DEA61A7C38DC00735B84 /* OpenWebRTC */,
 				F8E98D9119F2C01F0009F66F /* AssetsLibrary.framework */,
 				F8E98D9219F2C01F0009F66F /* AudioToolbox.framework */,
 				F8E98D9319F2C01F0009F66F /* AVFoundation.framework */,
@@ -2084,7 +2412,7 @@
 		F8E98D8819F264B20009F66F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = arm64;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CERBERO_DIST = "$(HOME)/cerbero/dist";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -2116,13 +2444,40 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=arm64]" = (
+					"$(inherited)",
+					"$(CERBERO_DIST)/ios_arm64/include",
+					"$(CERBERO_DIST)/ios_arm64/include/glib-2.0",
+					"$(CERBERO_DIST)/ios_arm64/lib/glib-2.0/include",
+					"$(CERBERO_DIST)/ios_arm64/include/gstreamer-1.0",
+					"$(CERBERO_DIST)/ios_arm64/lib/gstreamer-1.0/include",
+				);
+				"HEADER_SEARCH_PATHS[arch=armv7]" = (
+					"$(inherited)",
+					"$(CERBERO_DIST)/ios_armv7/include",
+					"$(CERBERO_DIST)/ios_armv7/include/glib-2.0",
+					"$(CERBERO_DIST)/ios_armv7/lib/glib-2.0/include",
+					"$(CERBERO_DIST)/ios_armv7/include/gstreamer-1.0",
+					"$(CERBERO_DIST)/ios_armv7/lib/gstreamer-1.0/include",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				"LIBRARY_SEARCH_PATHS[arch=arm64]" = (
+					"$(CERBERO_DIST)/ios_arm64/lib/static",
+					"$(CERBERO_DIST)/ios_arm64/lib/gstreamer-1.0/static",
+					"$(inherited)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib",
+				);
+				"LIBRARY_SEARCH_PATHS[arch=armv7]" = (
+					"$(CERBERO_DIST)/ios_armv7/lib/static",
+					"$(CERBERO_DIST)/ios_armv7/lib/gstreamer-1.0/static",
+					"$(inherited)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/Volumes/Mac/OpenWebRTC_framework_0.1/OpenWebRTC.framework/Headers/**";
 				VALID_ARCHS = arm64;
 			};
 			name = Debug;
@@ -2156,11 +2511,38 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=arm64]" = (
+					"$(inherited)",
+					"$(CERBERO_DIST)/ios_arm64/include",
+					"$(CERBERO_DIST)/ios_arm64/include/glib-2.0",
+					"$(CERBERO_DIST)/ios_arm64/lib/glib-2.0/include",
+					"$(CERBERO_DIST)/ios_arm64/include/gstreamer-1.0",
+					"$(CERBERO_DIST)/ios_arm64/lib/gstreamer-1.0/include",
+				);
+				"HEADER_SEARCH_PATHS[arch=armv7]" = (
+					"$(inherited)",
+					"$(CERBERO_DIST)/ios_armv7/include",
+					"$(CERBERO_DIST)/ios_armv7/include/glib-2.0",
+					"$(CERBERO_DIST)/ios_armv7/lib/glib-2.0/include",
+					"$(CERBERO_DIST)/ios_armv7/include/gstreamer-1.0",
+					"$(CERBERO_DIST)/ios_armv7/lib/gstreamer-1.0/include",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				"LIBRARY_SEARCH_PATHS[arch=arm64]" = (
+					"$(CERBERO_DIST)/ios_arm64/lib/static",
+					"$(CERBERO_DIST)/ios_arm64/lib/gstreamer-1.0/static",
+					"$(inherited)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib",
+				);
+				"LIBRARY_SEARCH_PATHS[arch=armv7]" = (
+					"$(CERBERO_DIST)/ios_armv7/lib/static",
+					"$(CERBERO_DIST)/ios_armv7/lib/gstreamer-1.0/static",
+					"$(inherited)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/Volumes/Mac/OpenWebRTC_framework_0.1/OpenWebRTC.framework/Headers/**";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = arm64;
 			};
@@ -2173,10 +2555,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Volumes/Mac/OpenWebRTC_framework_0.1,
-				);
 				INFOPLIST_FILE = TestSendReceive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2196,10 +2574,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Volumes/Mac/OpenWebRTC_framework_0.1,
-				);
 				INFOPLIST_FILE = TestSendReceive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
