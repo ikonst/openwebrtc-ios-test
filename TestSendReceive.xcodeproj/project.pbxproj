@@ -90,6 +90,8 @@
 		3F75DEFE1A7C38E900735B84 /* libvpx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DED21A7C38E900735B84 /* libvpx.a */; };
 		3F75DF001A7C406100735B84 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F75DEFF1A7C406100735B84 /* libresolv.dylib */; };
 		3F8045CA1AC461C5001762DF /* OpenWebRTCVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8045C91AC461C5001762DF /* OpenWebRTCVideoView.m */; };
+		3F8048181AC4E67B001762DF /* GStreamerBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8048171AC4E67B001762DF /* GStreamerBackend.m */; };
+		3F80481C1AC4E915001762DF /* gst_ios_init.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F80481B1AC4E915001762DF /* gst_ios_init.m */; };
 		F8E98D7619F264B20009F66F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E98D7419F264B20009F66F /* Main.storyboard */; };
 		F8E98D7819F264B20009F66F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8E98D7719F264B20009F66F /* Images.xcassets */; };
 		F8E98D7B19F264B20009F66F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8E98D7919F264B20009F66F /* LaunchScreen.xib */; };
@@ -195,6 +197,11 @@
 		3F75DEFF1A7C406100735B84 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libresolv.dylib; sourceTree = DEVELOPER_DIR; };
 		3F8045C81AC461C5001762DF /* OpenWebRTCVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenWebRTCVideoView.h; sourceTree = "<group>"; };
 		3F8045C91AC461C5001762DF /* OpenWebRTCVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenWebRTCVideoView.m; sourceTree = "<group>"; };
+		3F8048161AC4E67B001762DF /* GStreamerBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GStreamerBackend.h; sourceTree = "<group>"; };
+		3F8048171AC4E67B001762DF /* GStreamerBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GStreamerBackend.m; sourceTree = "<group>"; };
+		3F8048191AC4E76F001762DF /* GStreamerBackendDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GStreamerBackendDelegate.h; sourceTree = "<group>"; };
+		3F80481A1AC4E915001762DF /* gst_ios_init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gst_ios_init.h; sourceTree = "<group>"; };
+		3F80481B1AC4E915001762DF /* gst_ios_init.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gst_ios_init.m; sourceTree = "<group>"; };
 		3FC7DCDF1A7BEA5A00EF5ED8 /* bzlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bzlib.h; sourceTree = "<group>"; };
 		3FC7DCE01A7BEA5A00EF5ED8 /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = error.h; sourceTree = "<group>"; };
 		3FC7DCE31A7BEA5B00EF5ED8 /* gdesktopappinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gdesktopappinfo.h; sourceTree = "<group>"; };
@@ -2249,6 +2256,11 @@
 		F8E98D6D19F264B20009F66F /* TestSendReceive */ = {
 			isa = PBXGroup;
 			children = (
+				3F80481A1AC4E915001762DF /* gst_ios_init.h */,
+				3F80481B1AC4E915001762DF /* gst_ios_init.m */,
+				3F8048191AC4E76F001762DF /* GStreamerBackendDelegate.h */,
+				3F8048161AC4E67B001762DF /* GStreamerBackend.h */,
+				3F8048171AC4E67B001762DF /* GStreamerBackend.m */,
 				3F8045C81AC461C5001762DF /* OpenWebRTCVideoView.h */,
 				3F8045C91AC461C5001762DF /* OpenWebRTCVideoView.m */,
 				3F2342551A9D4BCE00171D2B /* AppDelegate.h */,
@@ -2368,6 +2380,8 @@
 			files = (
 				F8E993CC19F42A3A0009F66F /* TestViewController.m in Sources */,
 				3F23428B1A9D539300171D2B /* main.m in Sources */,
+				3F80481C1AC4E915001762DF /* gst_ios_init.m in Sources */,
+				3F8048181AC4E67B001762DF /* GStreamerBackend.m in Sources */,
 				3F2342571A9D4BCE00171D2B /* AppDelegate.m in Sources */,
 				3F8045CA1AC461C5001762DF /* OpenWebRTCVideoView.m in Sources */,
 			);
@@ -2399,7 +2413,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = arm64;
 				CERBERO_DIST = "$(HOME)/cerbero/dist";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -2465,6 +2478,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = arm64;
 			};
 			name = Debug;
 		};
@@ -2472,7 +2486,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = arm64;
 				CERBERO_DIST = "$(HOME)/cerbero/dist";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -2531,6 +2544,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = arm64;
 			};
 			name = Release;
 		};

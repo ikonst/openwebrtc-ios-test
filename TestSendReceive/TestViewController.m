@@ -1,5 +1,7 @@
 #import "TestViewController.h"
-#import <GLKit/GLKit.h>
+#import "OpenWebRTCVideoView.h"
+#import "GStreamerBackend.h"
+@import GLKit;
 @import AVFoundation;
 
 #include <owr/owr.h>
@@ -18,15 +20,21 @@
 #define OWR_VIEW_TAG "owr-view"
 
 @interface TestViewController ()
+{
+    GStreamerBackend *gst_backend;
+}
 
-@property (weak) IBOutlet GLKView *owrView;
+@property (weak, nonatomic) IBOutlet OpenWebRTCVideoView *owrView;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 
 @end
 
 @implementation TestViewController
 
 // Whether to render the local view (before sending)
-// #define RENDER_SELF_VIEW
+#define RENDER_SELF_VIEW
 
 // Define to use the OPUS codec (48000kHz)
 // Undefine to use aLaw PCM (8000kHz), e.g. to test CPU load without OPUS encoding/decoding overhead
@@ -38,7 +46,7 @@
 // Define this to perform the normal send-receive loopback over TCP
 // Undefine to test "self-view" performance and related bugs without dealing
 // with the transport pipeline and codecs bugs / performance.
-#define TEST_LOOPBACK
+// #define TEST_LOOPBACK
 
 // Renders either self-view video or loopback (encoded and decoded) video.
 OwrVideoRenderer *video_renderer = NULL;
@@ -95,10 +103,10 @@ OwrCodecType audio_codec_type;
 #if 0
     video_width = 480;
     video_height = 368;
-#elif 0
+#elif 1
     video_width = 1280;
     video_height = 720;
-#elif 1
+#elif 0
     video_width = 960;
     video_height = 540;
 #elif 0
@@ -129,10 +137,77 @@ OwrCodecType audio_codec_type;
     // https://gist.github.com/ikonst/6874ff814ab7f2530b2a
     //
     setenv("GST_DEBUG_DUMP_DOT_DIR", [NSTemporaryDirectory() cStringUsingEncoding:NSUTF8StringEncoding], 1);
+    
+#ifdef OPENGL_STUPID_TEST_CODE
+    // Create context
+    EAGLContext *context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    [EAGLContext setCurrentContext:context];
+    
+    // Get view
+    CAEAGLLayer *layer = (CAEAGLLayer*) self.owrView.layer;
 
+    // Create render buffer
+    GLuint renderbuffer;
+    glGenRenderbuffers(1, &renderbuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, renderbuffer);
+    [context renderbufferStorage:GL_RENDERBUFFER fromDrawable:layer];
+    
+    // Create framebuffer
+    GLuint framebuffer;
+    glGenFramebuffers(1, &framebuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, renderbuffer);
+    
+    glClearColor(1, 1, 0, 1);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glViewport(0, 179, 288, 162);
+    
+    [context presentRenderbuffer:GL_RENDERBUFFER];
+#endif
+    
     owr_init();
     NSLog(@"OpenWebRTC initialized");
+
+    self.playButton.enabled = FALSE;
+    self.playButton.enabled = FALSE;
+
+#ifdef REGULAR_OWR_WORKFLOW
     [self owrSetup];
+#else
+    gst_backend = [[GStreamerBackend alloc] init:self videoView:self.owrView];
+#endif
+}
+
+/* Called when the Play button is pressed */
+-(IBAction) play:(id)sender
+{
+    [gst_backend play];
+}
+
+/* Called when the Pause button is pressed */
+-(IBAction) pause:(id)sender
+{
+    [gst_backend pause];
+}
+
+/*
+ * Methods from GstreamerBackendDelegate
+ */
+
+-(void) gstreamerInitialized
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.messageLabel.text = @"Ready";
+        self.playButton.enabled = TRUE;
+        self.pauseButton.enabled = TRUE;
+    });
+}
+
+-(void) gstreamerSetUIMessage:(NSString *)message
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.messageLabel.text = message;
+    });
 }
 
 - (void)owrSetup {
@@ -180,6 +255,12 @@ OwrCodecType audio_codec_type;
         g_object_set(recv_session_audio, "dtls-certificate", NULL, NULL);
         g_object_set(send_session_audio, "dtls-certificate", NULL, NULL);
 #endif
+        g_signal_connect(recv_session_audio, "on-incoming-source", G_CALLBACK(got_remote_source), NULL);
+        
+        OwrPayload *receive_payload = owr_audio_payload_new(audio_codec_type, 100, audio_codec_rate, audio_codec_channels);
+        owr_media_session_add_receive_payload(recv_session_audio, receive_payload);
+        
+        owr_transport_agent_add_session(recv_transport_agent, OWR_SESSION(recv_session_audio));
     }
     
     if (USE_VIDEO) {
@@ -191,10 +272,6 @@ OwrCodecType audio_codec_type;
         g_object_set(recv_session_video, "dtls-certificate", NULL, NULL);
         g_object_set(send_session_video, "dtls-certificate", NULL, NULL);
 #endif
-    }
-    
-    // VIDEO
-    if (USE_VIDEO) {
         g_signal_connect(recv_session_video, "on-incoming-source", G_CALLBACK(got_remote_source), NULL);
         
         // 103 is a dynamic payload type (see RTP payload types)
@@ -202,16 +279,6 @@ OwrCodecType audio_codec_type;
         owr_media_session_add_receive_payload(recv_session_video, receive_payload);
         
         owr_transport_agent_add_session(recv_transport_agent, OWR_SESSION(recv_session_video));
-    }
-    
-    // AUDIO
-    if (USE_AUDIO) {
-        g_signal_connect(recv_session_audio, "on-incoming-source", G_CALLBACK(got_remote_source), NULL);
-        
-        OwrPayload *receive_payload = owr_audio_payload_new(audio_codec_type, 100, audio_codec_rate, audio_codec_channels);
-        owr_media_session_add_receive_payload(recv_session_audio, receive_payload);
-        
-        owr_transport_agent_add_session(recv_transport_agent, OWR_SESSION(recv_session_audio));
     }
 #endif // of TEST_LOOPBACK
     
@@ -226,17 +293,10 @@ OwrCodecType audio_codec_type;
     owr_get_capture_sources(mediaTypes, got_sources, NULL);
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    long height = [self.owrView drawableHeight], width = [self.owrView drawableWidth];
-    height = height;
-    width = width;
-}
-
+#ifndef RENDER_SELF_VIEW
 static void got_remote_source(OwrMediaSession *session, OwrMediaSource *source, gpointer user_data)
 {
     gchar *name = NULL;
-    OwrMediaRenderer *owr_renderer = NULL;
     OwrMediaType media_type;
     
     g_assert(!user_data);
@@ -255,7 +315,6 @@ static void got_remote_source(OwrMediaSession *session, OwrMediaSource *source, 
 
         g_print("Connecting source to video renderer\n");
         owr_media_renderer_set_source(OWR_MEDIA_RENDERER(renderer), source);
-        owr_renderer = OWR_MEDIA_RENDERER(renderer);
     } else if (media_type == OWR_MEDIA_TYPE_AUDIO) {
         g_print("Creating audio renderer\n");
         OwrAudioRenderer *renderer = owr_audio_renderer_new();
@@ -266,7 +325,6 @@ static void got_remote_source(OwrMediaSession *session, OwrMediaSource *source, 
         
         g_print("Connecting source to audio renderer\n");
         owr_media_renderer_set_source(OWR_MEDIA_RENDERER(renderer), source);
-        owr_renderer = OWR_MEDIA_RENDERER(renderer);
     }
     
     g_free(name);
@@ -276,6 +334,7 @@ static void got_candidate(OwrMediaSession *session_a, OwrCandidate *candidate, O
 {
     owr_session_add_remote_candidate(OWR_SESSION(session_b), candidate);
 }
+#endif
 
 #ifdef HACK
 // HACK
@@ -318,9 +377,10 @@ static void got_sources(GList *sources, gpointer user_data)
         OwrMediaType media_type;
         OwrSourceType source_type;
         g_object_get(source, "name", &source_name, "type", &source_type, "media-type", &media_type, NULL);
+        gboolean is_front_camera = g_str_equal(source_name, "Front Camera");
         gboolean is_back_camera = g_str_equal(source_name, "Back Camera");
         
-        if (!have_video && is_back_camera && media_type == OWR_MEDIA_TYPE_VIDEO && source_type == OWR_SOURCE_TYPE_CAPTURE) {
+        if (!have_video && is_front_camera && media_type == OWR_MEDIA_TYPE_VIDEO && (source_type == OWR_SOURCE_TYPE_CAPTURE || source_type == OWR_SOURCE_TYPE_TEST)) {
             have_video = TRUE;
             
 #ifdef TEST_LOOPBACK
@@ -336,11 +396,11 @@ static void got_sources(GList *sources, gpointer user_data)
 #ifdef RENDER_SELF_VIEW
             g_print("Displaying self-view\n");
             
-            Owrvideo_renderer *renderer = owr_video_renderer_new(NULL);
+            OwrVideoRenderer *renderer = owr_video_renderer_new(OWR_VIEW_TAG);
             g_assert(renderer);
             g_object_set(renderer, "width", video_width, "height", video_height, "max-framerate", transmit_frame_rate, NULL);
             owr_media_renderer_set_source(OWR_MEDIA_RENDERER(renderer), source);
-            video_renderer = OWR_MEDIA_RENDERER(renderer);
+            video_renderer = OWR_VIDEO_RENDERER(renderer);
 #endif
             video_source = source;
         } else if (!have_audio && media_type == OWR_MEDIA_TYPE_AUDIO && source_type == OWR_SOURCE_TYPE_CAPTURE) {
@@ -403,7 +463,7 @@ static void got_sources(GList *sources, gpointer user_data)
             gst_element_set_state(osxaudio_sink, GST_STATE_PLAYING);
 #endif // HACK
             
-            audio_renderer = OWR_MEDIA_RENDERER(renderer);
+            audio_renderer = OWR_AUDIO_RENDERER(renderer);
 #endif
             audio_source = source;
         }
