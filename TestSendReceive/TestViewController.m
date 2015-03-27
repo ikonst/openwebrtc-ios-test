@@ -138,33 +138,6 @@ OwrCodecType audio_codec_type;
     //
     setenv("GST_DEBUG_DUMP_DOT_DIR", [NSTemporaryDirectory() cStringUsingEncoding:NSUTF8StringEncoding], 1);
     
-#ifdef OPENGL_STUPID_TEST_CODE
-    // Create context
-    EAGLContext *context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-    [EAGLContext setCurrentContext:context];
-    
-    // Get view
-    CAEAGLLayer *layer = (CAEAGLLayer*) self.owrView.layer;
-
-    // Create render buffer
-    GLuint renderbuffer;
-    glGenRenderbuffers(1, &renderbuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, renderbuffer);
-    [context renderbufferStorage:GL_RENDERBUFFER fromDrawable:layer];
-    
-    // Create framebuffer
-    GLuint framebuffer;
-    glGenFramebuffers(1, &framebuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, renderbuffer);
-    
-    glClearColor(1, 1, 0, 1);
-    glClear(GL_COLOR_BUFFER_BIT);
-    glViewport(0, 179, 288, 162);
-    
-    [context presentRenderbuffer:GL_RENDERBUFFER];
-#endif
-    
     owr_init();
     NSLog(@"OpenWebRTC initialized");
 
