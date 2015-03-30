@@ -143,7 +143,9 @@ OwrCodecType audio_codec_type;
 
     self.playButton.enabled = FALSE;
     self.playButton.enabled = FALSE;
-
+    // TEMPORARY: Rotate the self-view with a transform (Apple does not recommend this)
+    self.owrView.transform = CGAffineTransformMakeRotation(M_PI_2);
+    
 #ifdef GSTREAMER_TEST_CODE
     gst_backend = [[GStreamerBackend alloc] init:self videoView:self.owrView];
 #else
