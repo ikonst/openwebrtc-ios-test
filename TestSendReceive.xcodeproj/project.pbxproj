@@ -2559,8 +2559,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/RESEARCH-MAC4/cerbero/dist/ios_arm64/lib/static",
-					"/Users/RESEARCH-MAC4/cerbero/dist/ios_arm64/lib/gstreamer-1.0/static",
+					"$(CERBERO_DIST)/ios_arm64/lib/static",
+					"$(CERBERO_DIST)/ios_arm64/lib/gstreamer-1.0/static",
 				);
 				PRODUCT_NAME = TestSendReceive;
 				PROVISIONING_PROFILE = "";
@@ -2578,8 +2578,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/RESEARCH-MAC4/cerbero/dist/ios_arm64/lib/static",
-					"/Users/RESEARCH-MAC4/cerbero/dist/ios_arm64/lib/gstreamer-1.0/static",
+					"$(CERBERO_DIST)/dist/ios_arm64/lib/static",
+					"$(CERBERO_DIST)/dist/ios_arm64/lib/gstreamer-1.0/static",
 				);
 				PRODUCT_NAME = TestSendReceive;
 				PROVISIONING_PROFILE = "";
